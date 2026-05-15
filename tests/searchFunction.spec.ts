@@ -42,3 +42,30 @@ test ('flipkar search close the pop up and search', async({page})=>{
 
 });
 
+test ('search and select Lenovo ', async({page})=>{
+
+    await page.goto('https://www.amazon.in/')
+
+
+    //in amazon getbyrole won't work, bcz role is not mentioned in the DOM
+
+    await page.getByPlaceholder('Search Amazon.in').fill('laptop')
+
+    await page.keyboard.press('Enter')
+
+    await expect(page.getByText('results for "laptop"')).toBeVisible()
+
+    // click on lenovo
+
+    const LenovoCheckBox = page.getByLabel('Apply the filter Lenovo to narrow results')
+
+    await LenovoCheckBox.click()
+
+    await expect(LenovoCheckBox).toBeTruthy()
+
+    await page.waitForLoadState('networkidle');
+
+
+});
+
+
