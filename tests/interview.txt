@@ -1,0 +1,21 @@
+
+1. what is interface and type
+interface - delecalre the strue of the the object
+             Ex- interface User {
+                    name: string;
+                    age: number;
+                }
+
+Type -- Tells you about the what is the data type is it number or string etc
+             ex; type User = {
+                    name: string;
+                    age: number;
+                    };
+
+2. What is auto-waiting in Playwright?
+    Playwright waits for elements to be actionable before performing actions.
+    “Auto-waiting reduces explicit waits and makes tests more stable by ensuring elements are ready before interaction.”
+
+3. What are locators in Playwright?
+In Playwright, locators are the way to find and interact with elements on a web page.
+    EX; buttons, input fields, links, text, forms
