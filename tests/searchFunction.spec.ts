@@ -46,7 +46,6 @@ test ('search and select Lenovo ', async({page})=>{
 
     await page.goto('https://www.amazon.in/')
 
-
     //in amazon getbyrole won't work, bcz role is not mentioned in the DOM
 
     await page.getByPlaceholder('Search Amazon.in').fill('laptop')
@@ -61,11 +60,7 @@ test ('search and select Lenovo ', async({page})=>{
 
     await LenovoCheckBox.click()
 
-    await expect(LenovoCheckBox).toBeTruthy()
-
-    await page.waitForLoadState('networkidle');
-
-
+    await expect(page.getByText('Lenovo IdeaPad Slim 3 13th Gen Core i7-13620H')).toBeVisible()
 });
 
 
