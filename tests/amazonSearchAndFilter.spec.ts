@@ -25,6 +25,9 @@ test('medthod 2 search by placeholder and search and filter', async({page})=>{
 
     await page.keyboard.press('Enter')
 
+    //or
+    //  await page.locator('#nav-search-submit-button').click()
+
     await expect (page.getByText('Deals & Discounts')).toBeVisible()
    
    await page.locator('#brandsRefinements')
