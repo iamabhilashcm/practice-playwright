@@ -19,7 +19,7 @@ test("search,select qty and add to cart", async ({ page }) => {
 
   //click on the product REDMI A7 Pro 5G
   await page
-    .getByLabel("Sponsored Ad - REDMI A7 Pro 5G (Black, 4GB RAM, 64GB Storage")
+    .getByLabel("REDMI A7 Pro 5G (Black, 4GB RAM, 64GB Storage)")
     .click();
 
   // to operate on the newtab we need define the below otherwise playwright won't work and fails
