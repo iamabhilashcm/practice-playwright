@@ -14,6 +14,9 @@ test("search,select qty and add to cart", async ({ page }) => {
   //click on the the filter Redmi(checkbox)
   await page.getByLabel("Apply the filter Redmi to narrow results").click();
 
+  //waits till the complete page load
+  await page.waitForLoadState();
+
   //click on the product REDMI A7 Pro 5G
   await page
     .getByLabel("Sponsored Ad - REDMI A7 Pro 5G (Black, 4GB RAM, 64GB Storage")
@@ -22,6 +25,7 @@ test("search,select qty and add to cart", async ({ page }) => {
   // to operate on the newtab we need define the below otherwise playwright won't work and fails
   const newTabPromise = page.context().waitForEvent("page");
   const newTab = await newTabPromise;
+
   await newTab.waitForLoadState();
 
   await expect(
@@ -40,32 +44,30 @@ test("search,select qty and add to cart", async ({ page }) => {
   await newTab.getByRole("button", { name: "Add to Cart" }).click();
 });
 
-//optimised code same as above
+//optimised code, same flow as above
 
-test("search, select qty and add to cart", async ({ page }) => {
+test("search & select qty and add to cart", async ({ page }) => {
   await page.goto("https://www.amazon.in/");
 
   // Search product
   await page.getByPlaceholder("Search Amazon.in").fill("Mobile 5g");
   await page.locator("#nav-search-submit-button").click();
 
-  // Validate search results (FIXED: added assertion)
+  // Validate search results
   await expect(page.getByText('results for "Mobile 5g"')).toBeVisible();
 
   // Apply Redmi filter
   await page.getByLabel("Apply the filter Redmi to narrow results").click();
 
-  // Handle new tab properly (BEST PRACTICE FIX)
+  // Handle new tab properly (BEST PRACTICE)
   const [newTab] = await Promise.all([
     page.context().waitForEvent("page"),
-    page
-      .getByLabel(
-        "Sponsored Ad - REDMI A7 Pro 5G (Black, 4GB RAM, 64GB Storage",
-      )
-      .click(),
+    page.getByLabel("REDMI A7 Pro 5G (Black, 4GB RAM, 64GB Storage").click(),
   ]);
 
   // Wait until product page is fully loaded
+  // (domcontentloaded, does not wait till the images and other elements get loaded it,
+  // it wait only wait till the DOM is loaded)
   await newTab.waitForLoadState("domcontentloaded");
 
   // Validate product page
@@ -81,4 +83,46 @@ test("search, select qty and add to cart", async ({ page }) => {
 
   // Add to cart
   await newTab.getByRole("button", { name: "Add to Cart" }).click();
+});
+
+test("newtab config", async ({ page }) => {
+  await page.goto("https://www.amazon.in/");
+
+  // Search product
+  await page.getByPlaceholder("Search Amazon.in").fill("Mobile 5g");
+  await page.locator("#nav-search-submit-button").click();
+
+  // Validate search results
+  await expect(page.getByText('results for "Mobile 5g"')).toBeVisible();
+
+  // Apply Redmi filter
+  await page.getByLabel("Apply the filter Redmi to narrow results").click();
+
+  await page.waitForLoadState();
+
+  // Handle new tab properly
+  const [abhi] = await Promise.all([
+    page.context().waitForEvent("page"),
+    page.getByLabel("Redmi Note 14 SE 5G, Crimson Art (6GB, 128GB)").click(),
+  ]);
+
+  // Wait until product page is fully loaded
+  // (domcontentloaded, does not wait till the images and other elements get loaded it,
+  // it wait only wait till the DOM is loaded)
+  await abhi.waitForLoadState("domcontentloaded");
+
+  // Validate product page
+  await expect(
+    abhi.getByRole("heading", {
+      name: "Redmi Note 14 SE 5G, Crimson Art (6GB, 128GB)",
+    }),
+  ).toBeVisible();
+
+  await abhi.locator("#a-autoid-0-announce").click();
+
+  // Select quantity = 2
+  await abhi.getByRole("option", { name: "2" }).click();
+
+  // Add to cart
+  await abhi.getByRole("button", { name: "Add to Cart" }).click();
 });
