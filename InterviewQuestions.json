@@ -1,0 +1,94 @@
+{
+  "Q1". "Difference between Severity and Priority?"
+  Answer:
+  Severity = Impact of the defect on functionality
+  Priority = Urgency to fix
+
+  Example:
+
+  Login button not working → High Severity + High Priority
+  Typo in homepage → Low Severity + High Priority
+  
+  "Q2". "What is STLC?"
+  Answer:
+
+  Software Testing Life Cycle:
+
+  Requirement Analysis
+  Test Planning
+  Test Case Development
+  Environment Setup
+  Test Execution
+  Test Closure
+  
+"Q3". "Difference between Regression and Retesting?"
+Answer:
+Retesting → Verify fixed defect
+Regression → Ensure existing functionality is unaffected
+  
+"Q4. What are Smoke and Sanity Testing?"
+Answer:
+Smoke → Broad level testing of critical functionalities
+Sanity → Narrow level testing after small changes
+
+"Q5. Difference between var, let, and const?"
+
+Feature	   var	     let	  const
+Scope	    Function	Block	  Block
+Reassign	  Yes	     Yes	    No
+Redeclare	  Yes	      No	    No
+  
+
+"Q6. What is Hoisting?"
+
+Answer:
+
+JavaScript moves declarations to the top during compilation.
+
+console.log(a);
+var a = 10;
+
+Equivalent
+var a;
+console.log(a);
+a = 10;
+
+"Q7. Difference between == and ===?"
+Answer:
+== → compares values only
+=== → compares value + datatype
+
+Example:
+5 == "5"   // true
+5 === "5"  // false
+
+
+"Q8. What are Promises?" {check for more answers}
+Answer:
+
+Promises handle asynchronous operations.
+
+States:
+Pending
+Resolved
+Rejected
+
+"Q9. Difference between synchronous and asynchronous?" {check for more answers}
+Answer:
+Sync → Executes line by line
+Async → Non-blocking execution
+
+
+"Q10. Explain Debouncing and Throttling." {check for more answers}
+
+{Very commonly asked.}
+
+Debouncing
+
+Executes after delay.
+
+Throttling
+
+Executes at fixed intervals
+
+}
