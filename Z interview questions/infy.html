@@ -55,8 +55,15 @@
       color: #444;
     }
 
+    .section {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
     code {
-      background: #eee;
       padding: 2px 5px;
       border-radius: 4px;
     }
@@ -433,19 +440,172 @@ use: {
 
 
       <div class="qa">
-        <div class="impquestion">20. Why is Playwright preferred over other tools?</div>
+        <div class="impquestion">22.What are the DATA types in Typescript </div>
         <div class="answer">
-          Playwright is preferred because:
-          <ul>
-            <li>Fast execution</li>
-            <li>Auto-waiting reduces flakiness</li>
-            <li>Cross-browser support</li>
-            <li>Built-in parallel execution</li>
-            <li>Powerful debugging tools</li>
-          </ul>
+          <h3>TypeScript Data Types</h3>
+
+          <div class="section">
+            <p>
+              In TypeScript, data types define what kind of value a variable can hold.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>1. Primitive Types</h2>
+
+            <p>
+              Primitive types include: string, number, boolean, bigint,
+              symbol, null, and undefined.
+            </p>
+
+            <pre><code>
+        let name: string = "Alice";
+        let age: number = 25;
+        let isActive: boolean = true;
+                </code></pre>
+          </div>
+
+          <div class="section">
+            <h2>2. Object Types</h2>
+
+            <p>
+              Object types are used for structured data with properties.
+            </p>
+
+            <pre><code>
+        let user: { name: string; age: number } = {
+            name: "John",
+            age: 30
+        };
+                </code></pre>
+          </div>
+
+          <div class="section">
+            <h2>3. Array Types</h2>
+
+            <p>
+              Array types store multiple values of the same type.
+            </p>
+
+            <pre><code>
+        let nums: number[] = [1, 2, 3];
+                </code></pre>
+          </div>
+
+          <div class="section">
+            <h2>4. Tuple Types</h2>
+
+            <p>
+              Tuple types store fixed-length arrays with specific types.
+            </p>
+
+            <pre><code>
+        let person: [string, number] = ["Alice", 25];
+                </code></pre>
+          </div>
+
+          <div class="section">
+            <h2>5. Union Types</h2>
+
+            <p>
+              Union types allow a variable to hold more than one type.
+            </p>
+
+            <pre><code>
+        let id: string | number = 101;
+                </code></pre>
+          </div>
+
+          <div class="section">
+            <h2>6. Literal Types</h2>
+
+            <p>
+              Literal types allow only specific exact values.
+            </p>
+
+            <pre><code>
+        let direction: "left" | "right" = "left";
+                </code></pre>
+          </div>
+
+          <div class="section">
+            <h2>7. Any Type</h2>
+
+            <p>
+              The <strong>any</strong> type disables type checking and can hold any value.
+            </p>
+
+            <pre><code>
+        let data: any = 5;
+                </code></pre>
+          </div>
+
+          <div class="section">
+            <h2>8. Unknown Type</h2>
+
+            <p>
+              The <strong>unknown</strong> type is similar to <strong>any</strong> but safer because
+              it requires type checking before use.
+            </p>
+
+            <pre><code>
+        let value: unknown = "Hello";
+        
+        if (typeof value === "string") {
+            console.log(value.toUpperCase());
+        }
+                </code></pre>
+          </div>
+
+          <div class="section">
+            <h2>9. Never Type</h2>
+
+            <p>
+              The <strong>never</strong> type represents values that never occur.
+            </p>
+
+            <pre><code>
+        function throwError(message: string): never {
+            throw new Error(message);
+        }
+                </code></pre>
+          </div>
+
+          <div class="section">
+            <h2>10. Void Type</h2>
+
+            <p>
+              The <strong>void</strong> type is used for functions that do not return a value.
+            </p>
+
+            <pre><code>
+        function greet(): void {
+            console.log("Hello");
+        }
+                </code></pre>
+          </div>
+
+          <div class="section">
+            <h2>Conclusion</h2>
+
+            <p>
+              These data types help TypeScript provide strong type safety,
+              better readability, and improved code quality.
+            </p>
+          </div>
+
+
         </div>
       </div>
 
+
+      <div class="qa">
+        <div class="impquestion">21.What are the DATA types in Typescript </div>
+        <div class="answer">
+
+
+        </div>
+      </div>
 
     </div>
   </div>

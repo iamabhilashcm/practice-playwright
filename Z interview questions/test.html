@@ -1,125 +1,200 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Common Playwright Errors</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeScript Data Types</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 30px;
+      line-height: 1.6;
+      background-color: #f9f9f9;
     }
 
-    h2 {
+    h1 {
       color: #333;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
+    .section {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    th,
-    td {
-      border: 1px solid #999;
-      padding: 10px;
-      text-align: left;
+    code {
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #fff;
     }
 
-    th {
-      background-color: #f2f2f2;
-    }
-
-    tr:nth-child(even) {
-      background-color: #fafafa;
+    pre {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
     }
   </style>
 </head>
 
 <body>
 
-  <h2>Common Errors During Test Execution in Playwright</h2>
+  <h1>TypeScript Data Types</h1>
 
-  <table>
-    <tr>
-      <th>Error Type</th>
-      <th>Reason</th>
-      <th>Example</th>
-    </tr>
+  <div class="section">
+    <p>
+      In TypeScript, data types define what kind of value a variable can hold.
+    </p>
+  </div>
 
-    <tr>
-      <td>Timeout Error</td>
-      <td>Element or page takes too long to load</td>
-      <td>Timeout 30000ms exceeded</td>
-    </tr>
+  <div class="section">
+    <h2>1. Primitive Types</h2>
 
-    <tr>
-      <td>Element Not Found</td>
-      <td>Incorrect locator or element not loaded</td>
-      <td>Locator not found</td>
-    </tr>
+    <p>
+      Primitive types include: string, number, boolean, bigint,
+      symbol, null, and undefined.
+    </p>
 
-    <tr>
-      <td>Strict Mode Violation</td>
-      <td>Multiple elements matched the locator</td>
-      <td>Strict mode violation</td>
-    </tr>
+    <pre><code>
+let name: string = "Alice";
+let age: number = 25;
+let isActive: boolean = true;
+        </code></pre>
+  </div>
 
-    <tr>
-      <td>Element Not Visible</td>
-      <td>Hidden element or popup overlap</td>
-      <td>Element is not visible</td>
-    </tr>
+  <div class="section">
+    <h2>2. Object Types</h2>
 
-    <tr>
-      <td>Element Detached from DOM</td>
-      <td>DOM refreshed dynamically</td>
-      <td>Element is detached from DOM</td>
-    </tr>
+    <p>
+      Object types are used for structured data with properties.
+    </p>
 
-    <tr>
-      <td>Assertion Failure</td>
-      <td>Expected result did not match actual</td>
-      <td>expect().toBe() failed</td>
-    </tr>
+    <pre><code>
+let user: { name: string; age: number } = {
+    name: "John",
+    age: 30
+};
+        </code></pre>
+  </div>
 
-    <tr>
-      <td>API Failure</td>
-      <td>Backend service issue</td>
-      <td>500 Internal Server Error</td>
-    </tr>
+  <div class="section">
+    <h2>3. Array Types</h2>
 
-    <tr>
-      <td>Authentication Issue</td>
-      <td>Session expired or invalid login</td>
-      <td>Auto logout during execution</td>
-    </tr>
+    <p>
+      Array types store multiple values of the same type.
+    </p>
 
-    <tr>
-      <td>Iframe Handling Issue</td>
-      <td>Incorrect frame selection</td>
-      <td>Unable to locate iframe element</td>
-    </tr>
+    <pre><code>
+let nums: number[] = [1, 2, 3];
+        </code></pre>
+  </div>
 
-    <tr>
-      <td>File Upload Failure</td>
-      <td>Wrong file path</td>
-      <td>ENOENT file not found</td>
-    </tr>
+  <div class="section">
+    <h2>4. Tuple Types</h2>
 
-    <tr>
-      <td>Cross Browser Issue</td>
-      <td>Different browser behavior</td>
-      <td>Works in Chrome but fails in Firefox</td>
-    </tr>
+    <p>
+      Tuple types store fixed-length arrays with specific types.
+    </p>
 
-    <tr>
-      <td>CI/CD Pipeline Failure</td>
-      <td>Environment or configuration issue</td>
-      <td>Fails in Jenkins pipeline</td>
-    </tr>
+    <pre><code>
+let person: [string, number] = ["Alice", 25];
+        </code></pre>
+  </div>
 
-  </table>
+  <div class="section">
+    <h2>5. Union Types</h2>
+
+    <p>
+      Union types allow a variable to hold more than one type.
+    </p>
+
+    <pre><code>
+let id: string | number = 101;
+        </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>6. Literal Types</h2>
+
+    <p>
+      Literal types allow only specific exact values.
+    </p>
+
+    <pre><code>
+let direction: "left" | "right" = "left";
+        </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>7. Any Type</h2>
+
+    <p>
+      The <strong>any</strong> type disables type checking and can hold any value.
+    </p>
+
+    <pre><code>
+let data: any = 5;
+        </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>8. Unknown Type</h2>
+
+    <p>
+      The <strong>unknown</strong> type is similar to <strong>any</strong> but safer because
+      it requires type checking before use.
+    </p>
+
+    <pre><code>
+let value: unknown = "Hello";
+
+if (typeof value === "string") {
+    console.log(value.toUpperCase());
+}
+        </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>9. Never Type</h2>
+
+    <p>
+      The <strong>never</strong> type represents values that never occur.
+    </p>
+
+    <pre><code>
+function throwError(message: string): never {
+    throw new Error(message);
+}
+        </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>10. Void Type</h2>
+
+    <p>
+      The <strong>void</strong> type is used for functions that do not return a value.
+    </p>
+
+    <pre><code>
+function greet(): void {
+    console.log("Hello");
+}
+        </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Conclusion</h2>
+
+    <p>
+      These data types help TypeScript provide strong type safety,
+      better readability, and improved code quality.
+    </p>
+  </div>
 
 </body>
 
