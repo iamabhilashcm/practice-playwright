@@ -1,0 +1,19 @@
+High Probability Questions (Very Frequently Asked)
+
+These are extremely common:
+
+Why Playwright?
+Explain POM
+Difference between locator and elementHandle
+Auto waits
+Handling flaky tests
+API mocking
+Parallel execution
+Async await
+Promise vs callback
+Type vs interface
+Explain framework structure
+CI/CD integration
+Storage state
+Fixtures
+Dynamic locators

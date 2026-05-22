@@ -91,4 +91,233 @@ Throttling
 
 Executes at fixed intervals
 
+"Q11. What are Arrow Functions?" {check for more answers}
+Key Difference:
+
+Arrow functions don’t have their own {this.}
+
+
+"Q18. Why TypeScript over JavaScript?"
+Answer:
+Static typing
+Better IDE support
+Compile-time error detection
+Better maintainability
+
+
+What is Playwright?
+
+Answer
+
+Playwright is an open-source end-to-end automation framework developed by Microsoft. 
+It supports Chromium, Firefox, and WebKit browsers and allows cross-browser testing and Parallel execution
+
+"Q1. Why Playwright over Selenium?"
+Answer
+Faster execution
+Auto-wait mechanism
+Supports multiple tabs/windows easily
+Better handling of modern applications
+Built-in API testing
+Network interception support
+Parallel execution built-in
+Better stability compared to Selenium
+Follow-up
+
+“What is auto-wait?”
+
+Answer
+
+Playwright automatically waits for:
+
+element visibility
+stability
+enabled state
+attached to DOM
+
+before performing actions.
+
+Example:
+await page.locator('#login').click();
+
+
+"Q3. What browsers does Playwright support?"
+Answer
+Chromium
+Firefox
+WebKit
+
+Also supports:
+
+Chrome
+Edge
+
+"Q4. Explain Playwright architecture."
+Answer
+
+Playwright communicates directly with browser engines using browser protocols instead of WebDriver.
+
+Architecture:
+Test Script → Playwright API → Browser Engine
+
+
+"Q6. What are locators in Playwright?"
+Answer
+
+Locators are Playwright’s recommended way to find elements.
+
+Example:
+page.locator('#username')
+
+
+"Q7. Which locator strategy is best?"
+{User facing locators}
+Best Order
+
+getByRole()
+getByLabel()
+getByText()
+data-testid
+CSS/XPath
+
+Example:
+page.getByRole('button', { name: 'Login' })
+
+
+"Q8. Difference between locator() and $()"
+ or "Difference between locator and elementHandle?"
+{Difference: page.locator() vs page.$()}
+
+page.$()
+Returns an ElementHandle
+Finds the element immediately
+If the element changes later, the handle may become stale
+Does not auto-wait
+Older API style
+Usually discouraged in modern Playwright
+
+Example:
+const btn = await page.$('#login');
+await btn.click();
+If #login appears late, this may fail.
+
+
+page.locator()
+
+Returns a Locator
+Locator is “lazy” — it resolves the element when an action happens
+Built-in auto waiting
+Retries automatically
+More reliable for dynamic apps
+Recommended modern API
+
+Example:
+await page.locator('#login').click();
+
+Playwright waits for:
+element to appear
+be visible
+be actionable
+before clicking.
+
+"Q9. How do you handle dropdowns?"
+
+await page.locator('#country').selectOption({
+  label: 'India'
+});
+ or 
+await page.selectOption('#country', 'India');
+
+Q13. Difference between toBeVisible() and isVisible()?
+
+| toBeVisible         | isVisible          |
+| ------------------- | ------------------ |
+| Assertion           | Returns boolean    |
+| Auto waits          | No assertion       |
+| Used in validations | Used in conditions |
+
+
+Q17. How do you handle multiple tabs/windows?
+
+const [newPage] = await Promise.all([
+  context.waitForEvent('page'),
+  page.click('text=Open')
+]);
+
+Q19. How do you handle frames?
+
+const frame = page.frameLocator('#frameId');
+
+await frame.locator('#username').fill('admin');
+
+
+Q20. Explain hooks in Playwright.
+
+test.beforeEach()
+test.afterEach()
+test.beforeAll()
+test.afterAll()
+
+Q23. How do you run tests in parallel?
+
+In config:
+
+fullyParallel: true
+
+npx playwright test --workers=4
+
+{"Real-Time Scenario Questions "}
+
+"Q48. Your test is flaky. What will you do?"
+
+Expected Answer
+Will check what is cause of the flakyness is it locators or assertions based on that
+will fix the flakyness
+
+Check synchronization issues
+Avoid hard waits
+Improve locators
+Add retries carefully
+Use tracing/screenshots
+Verify environment stability
+
+
+Q57. Explain your framework folder structure.
+
+tests/
+pages/
+utils/
+fixtures/
+test-data/
+config/
+reports/
+
+
+Q58. How do you make framework scalable?
+Mention
+Reusable methods
+Base page
+Generic utilities
+Fixtures
+Environment configs
+Modular architecture
+
+Q59. What challenges did you face in Playwright?
+Example Answers
+Dynamic elements
+Shadow DOM
+Flaky tests
+Network synchronization
+Authentication handling (don't mention)
+
+
+
+Q63. Difference between hard assertion and soft assertion?
+Key Difference in Playwright
+| Hard Assertion        | Soft Assertion             |
+| --------------------- | -------------------------- |
+| `expect()`            | `expect.soft()`            |
+| Stops test on failure | Continues test             |
+| Immediate failure     | Reports all failures later |
+
 }
