@@ -1,43 +1,71 @@
 {
-  "Q1". "Difference between Severity and Priority?"
-  Answer:
-  Severity = Impact of the defect on functionality
-  Priority = Urgency to fix
 
-  Example:
+"prompt": "Assume you have 12+ years of experience in the playwright and Prepare me for mock interview for the
+playwright with typescript, me who is having 2 years of playwright with typescript experience and 3 years of manual
+testing, in the interview questions include basic scripting questions and also on the playwright, javascript and
+typescript include basic to advance questions"
 
-  Login button not working → High Severity + High Priority
-  Typo in homepage → Low Severity + High Priority
-  
-  "Q2". "What is STLC?"
-  Answer:
 
-  Software Testing Life Cycle:
+"Q1". "Difference between Severity and Priority?"
+Answer:
+Severity = Impact of the defect on functionality
+Priority = Urgency to fix
 
-  Requirement Analysis
-  Test Planning
-  Test Case Development
-  Environment Setup
-  Test Execution
-  Test Closure
-  
+Example:
+
+Login button not working → High Severity + High Priority
+Typo in homepage → Low Severity + High Priority
+
+"Q2". "What is STLC?"
+Answer:
+
+Software Testing Life Cycle:
+
+STLC defines the sequence of activities performed by QA/testing teams to improve software quality
+and detect defects early.
+
+Software Testing Life Cycle:
+Requirement Analysis
+Test Planning
+Test Case Development
+Environment Setup
+Test Execution
+Test Closure
+
 "Q3". "Difference between Regression and Retesting?"
 Answer:
-Retesting → Verify fixed defect
-Regression → Ensure existing functionality is unaffected
-  
+
+"Retesting" → Verify fixed defect
+Retesting is performed after a defect/bug has been fixed by developers.
+
+{goal is:}
+To verify that the reported defect is fixed correctly
+To ensure the functionality now behaves as expected
+
+
+"Regression" → Ensure existing functionality is unaffected
+
+Regression testing is done when changes are made to the software,
+to ensure that existing functionality still works correctly after the change.
+
+{"goal is to verify that"}
+New code changes did not break old functionality
+Existing modules still behave as expected
+
 "Q4. What are Smoke and Sanity Testing?"
 Answer:
-Smoke → Broad level testing of critical functionalities
-Sanity → Narrow level testing after small changes
+"Smoke" → Broad level testing of critical functionalities
+
+
+"Sanity" → Narrow level testing after small changes
 
 "Q5. Difference between var, let, and const?"
 
-Feature	   var	     let	  const
-Scope	    Function	Block	  Block
-Reassign	  Yes	     Yes	    No
-Redeclare	  Yes	      No	    No
-  
+Feature var let const
+Scope Function Block Block
+Reassign Yes Yes No
+Redeclare Yes No No
+
 
 "Q6. What is Hoisting?"
 
@@ -59,8 +87,8 @@ Answer:
 === → compares value + datatype
 
 Example:
-5 == "5"   // true
-5 === "5"  // false
+5 == "5" // true
+5 === "5" // false
 
 
 "Q8. What are Promises?" {check for more answers}
@@ -109,7 +137,7 @@ What is Playwright?
 
 Answer
 
-Playwright is an open-source end-to-end automation framework developed by Microsoft. 
+Playwright is an open-source end-to-end automation framework developed by Microsoft.
 It supports Chromium, Firefox, and WebKit browsers and allows cross-browser testing and Parallel execution
 
 "Q1. Why Playwright over Selenium?"
@@ -185,7 +213,7 @@ page.getByRole('button', { name: 'Login' })
 
 
 "Q8. Difference between locator() and $()"
- or "Difference between locator and elementHandle?"
+or "Difference between locator and elementHandle?"
 {Difference: page.locator() vs page.$()}
 
 page.$()
@@ -223,25 +251,25 @@ before clicking.
 "Q9. How do you handle dropdowns?"
 
 await page.locator('#country').selectOption({
-  label: 'India'
+label: 'India'
 });
- or 
+or
 await page.selectOption('#country', 'India');
 
 Q13. Difference between toBeVisible() and isVisible()?
 
-| toBeVisible         | isVisible          |
+| toBeVisible | isVisible |
 | ------------------- | ------------------ |
-| Assertion           | Returns boolean    |
-| Auto waits          | No assertion       |
+| Assertion | Returns boolean |
+| Auto waits | No assertion |
 | Used in validations | Used in conditions |
 
 
 Q17. How do you handle multiple tabs/windows?
 
 const [newPage] = await Promise.all([
-  context.waitForEvent('page'),
-  page.click('text=Open')
+context.waitForEvent('page'),
+page.click('text=Open')
 ]);
 
 Q19. How do you handle frames?
@@ -314,10 +342,28 @@ Authentication handling (don't mention)
 
 Q63. Difference between hard assertion and soft assertion?
 Key Difference in Playwright
-| Hard Assertion        | Soft Assertion             |
+| Hard Assertion | Soft Assertion |
 | --------------------- | -------------------------- |
-| `expect()`            | `expect.soft()`            |
-| Stops test on failure | Continues test             |
-| Immediate failure     | Reports all failures later |
+| `expect()` | `expect.soft()` |
+| Stops test on failure | Continues test |
+| Immediate failure | Reports all failures later |
 
 }
+
+
+Playwright
+Difference between fill() and type()
+Difference between click() and dblclick()
+How to handle Shadow DOM?
+How to run single test?
+Difference between soft and hard assertions?
+What is trace viewer?
+What is codegen?
+Difference between browser.newContext() and browser.newPage()
+
+TypeScript
+What is any type?
+What is unknown type?
+What is union type?
+What is tuple?
+Difference between public/private/protected
