@@ -205,6 +205,198 @@ let value: string | number;
                 </pre>
 
         <p>Variable can store multiple datatypes.</p>
+
+        <h1>TypeScript Data Types</h1>
+
+
+        <hr>
+
+        <h2>1. Number</h2>
+
+        <p>Used for numeric values.</p>
+
+        <pre>
+        let age: number = 25;
+        let price: number = 99.99;
+            </pre>
+
+        <hr>
+
+        <h2>2. String</h2>
+
+        <p>Used for text values.</p>
+
+        <pre>
+        let name: string = "John";
+            </pre>
+
+        <hr>
+
+        <h2>3. Boolean</h2>
+
+        <p>Used for true/false values.</p>
+
+        <pre>
+        let isLoggedIn: boolean = true;
+            </pre>
+
+        <hr>
+
+        <h2>4. Array</h2>
+
+        <p>Used to store multiple values.</p>
+
+        <pre>
+        let numbers: number[] = [1, 2, 3];
+        
+        let names: string[] = ["A", "B", "C"];
+            </pre>
+
+        <hr>
+
+        <h2>5. Tuple</h2>
+
+        <p>Fixed number of elements with fixed types.</p>
+
+        <pre>
+        let employee: [number, string] = [101, "John"];
+            </pre>
+
+        <hr>
+
+        <h2>6. Enum</h2>
+
+        <p>Used for predefined constant values.</p>
+
+        <pre>
+        enum Status {
+           Active,
+           Inactive,
+           Pending
+        }
+        
+        let currentStatus: Status = Status.Active;
+            </pre>
+
+        <hr>
+
+        <h2>7. Any</h2>
+
+        <p>Can store any datatype.</p>
+
+        <pre>
+        let value: any = 10;
+        
+        value = "Hello";
+        value = true;
+            </pre>
+
+        <hr>
+
+        <h2>8. Unknown</h2>
+
+        <p>Safer alternative to any.</p>
+
+        <pre>
+        let data: unknown = "Hello";
+            </pre>
+
+        <hr>
+
+        <h2>9. Void</h2>
+
+        <p>Used when a function does not return anything.</p>
+
+        <pre>
+        function greet(): void {
+           console.log("Hello");
+        }
+            </pre>
+
+        <hr>
+
+        <h2>10. Null</h2>
+
+        <pre>
+        let value: null = null;
+            </pre>
+
+        <hr>
+
+        <h2>11. Undefined</h2>
+
+        <pre>
+        let value: undefined = undefined;
+            </pre>
+
+        <hr>
+
+        <h2>12. Object</h2>
+
+        <p>Used for objects.</p>
+
+        <pre>
+        let user: object = {
+           name: "John",
+           age: 30
+        };
+            </pre>
+
+        <hr>
+
+        <h2>13. Union Type</h2>
+
+        <p>Variable can hold multiple types.</p>
+
+        <pre>
+        let id: string | number;
+        
+        id = 101;
+        id = "EMP101";
+            </pre>
+
+        <hr>
+
+        <h2>14. Literal Types</h2>
+
+        <p>Allows fixed values only.</p>
+
+        <pre>
+        let direction: "left" | "right";
+        
+        direction = "left";
+            </pre>
+
+        <hr>
+
+        <h2>15. Never</h2>
+
+        <p>Function never returns.</p>
+
+        <pre>
+        function throwError(): never {
+           throw new Error("Error");
+        }
+            </pre>
+
+        <hr>
+
+        <h2>Most Commonly Asked Interview Data Types</h2>
+
+        <ul>
+          <li>number</li>
+          <li>string</li>
+          <li>boolean</li>
+          <li>array</li>
+          <li>tuple</li>
+          <li>enum</li>
+          <li>any</li>
+          <li>unknown</li>
+          <li>void</li>
+          <li>union type</li>
+          <li>object</li>
+        </ul>
+
       </div>
     </div>
   </div>
