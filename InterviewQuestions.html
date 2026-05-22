@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Playwright Mock Interview Questions</title>
 
   <style>
@@ -20,31 +20,38 @@
     }
 
     .section {
-      background: white;
+      background: #fff;
       padding: 20px;
       margin-bottom: 20px;
       border-radius: 8px;
     }
 
     .question {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .question h3 {
       color: #0056b3;
+      margin-bottom: 8px;
     }
 
     .answer {
       background: #f9f9f9;
-      padding: 10px;
+      padding: 12px;
       border-left: 4px solid #007bff;
-      margin-top: 10px;
     }
 
     code {
       background: #eee;
       padding: 2px 5px;
       border-radius: 4px;
+    }
+
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
     }
 
     table {
@@ -67,7 +74,7 @@
 
     th {
       background: #007bff;
-      color: white;
+      color: #fff;
     }
   </style>
 </head>
@@ -76,17 +83,14 @@
 
   <h1>Playwright with TypeScript Mock Interview</h1>
 
-  <!-- Manual Testing -->
   <div class="section">
     <h2>Manual Testing Questions</h2>
 
     <div class="question">
       <h3>Q1. Difference between Severity and Priority?</h3>
-
       <div class="answer">
         <p><b>Severity:</b> Impact of the defect on functionality.</p>
         <p><b>Priority:</b> Urgency to fix the defect.</p>
-
         <ul>
           <li>Login button not working → High Severity + High Priority</li>
           <li>Typo in homepage → Low Severity + High Priority</li>
@@ -96,10 +100,8 @@
 
     <div class="question">
       <h3>Q2. What is STLC?</h3>
-
       <div class="answer">
         <p>Software Testing Life Cycle defines testing activities performed by QA teams.</p>
-
         <ol>
           <li>Requirement Analysis</li>
           <li>Test Planning</li>
@@ -112,13 +114,11 @@
     </div>
   </div>
 
-  <!-- JavaScript -->
   <div class="section">
     <h2>JavaScript Questions</h2>
 
     <div class="question">
       <h3>Q3. Difference between var, let and const?</h3>
-
       <table>
         <tr>
           <th>Feature</th>
@@ -126,21 +126,18 @@
           <th>let</th>
           <th>const</th>
         </tr>
-
         <tr>
           <td>Scope</td>
           <td>Function</td>
           <td>Block</td>
           <td>Block</td>
         </tr>
-
         <tr>
           <td>Reassign</td>
           <td>Yes</td>
           <td>Yes</td>
           <td>No</td>
         </tr>
-
         <tr>
           <td>Redeclare</td>
           <td>Yes</td>
@@ -151,25 +148,21 @@
     </div>
 
     <div class="question">
-      <h3>Q4. Difference between == and === ?</h3>
-
+      <h3>Q4. Difference between == and ===?</h3>
       <div class="answer">
         <p><code>==</code> compares values only.</p>
         <p><code>===</code> compares value + datatype.</p>
-
         <pre>
 5 == "5"   // true
 5 === "5"  // false
-                </pre>
+        </pre>
       </div>
     </div>
 
     <div class="question">
       <h3>Q5. What are Promises?</h3>
-
       <div class="answer">
         <p>Promises handle asynchronous operations.</p>
-
         <ul>
           <li>Pending</li>
           <li>Resolved</li>
@@ -179,13 +172,11 @@
     </div>
   </div>
 
-  <!-- TypeScript -->
   <div class="section">
     <h2>TypeScript Questions</h2>
 
     <div class="question">
       <h3>Q6. Why TypeScript over JavaScript?</h3>
-
       <div class="answer">
         <ul>
           <li>Static typing</li>
@@ -198,231 +189,70 @@
 
     <div class="question">
       <h3>Q7. What is Union Type?</h3>
-
       <div class="answer">
         <pre>
 let value: string | number;
-                </pre>
-
+        </pre>
         <p>Variable can store multiple datatypes.</p>
-
-        <h1>TypeScript Data Types</h1>
-
-
-        <hr>
-
-        <h2>1. Number</h2>
-
-        <p>Used for numeric values.</p>
-
-        <pre>
-        let age: number = 25;
-        let price: number = 99.99;
-            </pre>
-
-        <hr>
-
-        <h2>2. String</h2>
-
-        <p>Used for text values.</p>
-
-        <pre>
-        let name: string = "John";
-            </pre>
-
-        <hr>
-
-        <h2>3. Boolean</h2>
-
-        <p>Used for true/false values.</p>
-
-        <pre>
-        let isLoggedIn: boolean = true;
-            </pre>
-
-        <hr>
-
-        <h2>4. Array</h2>
-
-        <p>Used to store multiple values.</p>
-
-        <pre>
-        let numbers: number[] = [1, 2, 3];
-        
-        let names: string[] = ["A", "B", "C"];
-            </pre>
-
-        <hr>
-
-        <h2>5. Tuple</h2>
-
-        <p>Fixed number of elements with fixed types.</p>
-
-        <pre>
-        let employee: [number, string] = [101, "John"];
-            </pre>
-
-        <hr>
-
-        <h2>6. Enum</h2>
-
-        <p>Used for predefined constant values.</p>
-
-        <pre>
-        enum Status {
-           Active,
-           Inactive,
-           Pending
-        }
-        
-        let currentStatus: Status = Status.Active;
-            </pre>
-
-        <hr>
-
-        <h2>7. Any</h2>
-
-        <p>Can store any datatype.</p>
-
-        <pre>
-        let value: any = 10;
-        
-        value = "Hello";
-        value = true;
-            </pre>
-
-        <hr>
-
-        <h2>8. Unknown</h2>
-
-        <p>Safer alternative to any.</p>
-
-        <pre>
-        let data: unknown = "Hello";
-            </pre>
-
-        <hr>
-
-        <h2>9. Void</h2>
-
-        <p>Used when a function does not return anything.</p>
-
-        <pre>
-        function greet(): void {
-           console.log("Hello");
-        }
-            </pre>
-
-        <hr>
-
-        <h2>10. Null</h2>
-
-        <pre>
-        let value: null = null;
-            </pre>
-
-        <hr>
-
-        <h2>11. Undefined</h2>
-
-        <pre>
-        let value: undefined = undefined;
-            </pre>
-
-        <hr>
-
-        <h2>12. Object</h2>
-
-        <p>Used for objects.</p>
-
-        <pre>
-        let user: object = {
-           name: "John",
-           age: 30
-        };
-            </pre>
-
-        <hr>
-
-        <h2>13. Union Type</h2>
-
-        <p>Variable can hold multiple types.</p>
-
-        <pre>
-        let id: string | number;
-        
-        id = 101;
-        id = "EMP101";
-            </pre>
-
-        <hr>
-
-        <h2>14. Literal Types</h2>
-
-        <p>Allows fixed values only.</p>
-
-        <pre>
-        let direction: "left" | "right";
-        
-        direction = "left";
-            </pre>
-
-        <hr>
-
-        <h2>15. Never</h2>
-
-        <p>Function never returns.</p>
-
-        <pre>
-        function throwError(): never {
-           throw new Error("Error");
-        }
-            </pre>
-
-        <hr>
-
-        <h2>Most Commonly Asked Interview Data Types</h2>
-
-        <ul>
-          <li>number</li>
-          <li>string</li>
-          <li>boolean</li>
-          <li>array</li>
-          <li>tuple</li>
-          <li>enum</li>
-          <li>any</li>
-          <li>unknown</li>
-          <li>void</li>
-          <li>union type</li>
-          <li>object</li>
-        </ul>
-
       </div>
     </div>
   </div>
 
-  <!-- Playwright -->
+
+  <div class="question">
+    <h3>Q8. DATA types in Typescript</h3>
+    <div class="answer">
+      <p>In TypeScript, data types define what kind of value a variable can hold.</p>
+
+      <p>1. Primitive types include string, number, boolean, bigint, symbol, null, and undefined.</p>
+      <p>Example: let name: string = "Alice";</p>
+      <p>Example: let age: number = 25;</p>
+      <p>Example: let isActive: boolean = true;</p>
+
+      <p>2. Object types are used for structured data like objects with properties.</p>
+      <p>Example: let user: { name: string; age: number } = { name: "John", age: 30 };</p>
+
+      <p>3. Array types store multiple values of the same type.</p>
+      <p>Example: let nums: number[] = [1, 2, 3];</p>
+
+      <p>4. Tuple types store fixed-length arrays with specific types.</p>
+      <p>Example: let person: [string, number] = ["Alice", 25];</p>
+
+      <p>5. Union types allow a variable to hold more than one type.</p>
+      <p>Example: let id: string | number = 101;</p>
+
+      <p>6. Literal types allow only specific exact values.</p>
+      <p>Example: let direction: "left" | "right" = "left";</p>
+
+      <p>7. Any type disables type checking and can hold any value.</p>
+      <p>Example: let data: any = 5;</p>
+
+      <p>8. Unknown type is similar to any but safer because it requires type checking before use.</p>
+
+      <p>9. Never type represents values that never occur, such as functions that always throw errors.</p>
+
+      <p>10. Void type is used for functions that do not return a value.</p>
+
+      <p>These types help TypeScript provide strong type safety and better code quality.</p>
+
+
+
+    </div>
+  </div>
+
   <div class="section">
     <h2>Playwright Questions</h2>
 
     <div class="question">
       <h3>Q8. What is Playwright?</h3>
-
       <div class="answer">
-        <p>
-          Playwright is an open-source end-to-end automation framework
-          developed by Microsoft.
-        </p>
-
-        <p>
-          Supports Chromium, Firefox, WebKit and parallel execution.
-        </p>
+        <p>Playwright is an open-source end-to-end automation framework developed by Microsoft.</p>
+        <p>Supports Chromium, Firefox, WebKit and parallel execution.</p>
       </div>
     </div>
 
     <div class="question">
       <h3>Q9. Why Playwright over Selenium?</h3>
-
       <div class="answer">
         <ul>
           <li>Faster execution</li>
@@ -436,19 +266,14 @@ let value: string | number;
 
     <div class="question">
       <h3>Q10. What are Locators?</h3>
-
       <div class="answer">
         <p>Locators are used to identify web elements.</p>
-
-        <pre>
-page.locator('#username')
-                </pre>
+        <pre>page.locator('#username')</pre>
       </div>
     </div>
 
     <div class="question">
       <h3>Q11. Best Locator Strategy?</h3>
-
       <div class="answer">
         <ol>
           <li>getByRole()</li>
@@ -457,90 +282,22 @@ page.locator('#username')
           <li>data-testid</li>
           <li>CSS/XPath</li>
         </ol>
-
-        <pre>
-page.getByRole('button', { name: 'Login' })
-                </pre>
+        <pre>page.getByRole('button', { name: 'Login' })</pre>
       </div>
     </div>
-
-    <div class="question">
-      <h3>Q12. Difference between locator() and page.$() ?</h3>
-
-      <table>
-        <tr>
-          <th>locator()</th>
-          <th>page.$()</th>
-        </tr>
-
-        <tr>
-          <td>Auto waits</td>
-          <td>No auto wait</td>
-        </tr>
-
-        <tr>
-          <td>Recommended</td>
-          <td>Older API</td>
-        </tr>
-
-        <tr>
-          <td>Reliable</td>
-          <td>Can become stale</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="question">
-      <h3>Q13. How do you handle dropdowns?</h3>
-
-      <div class="answer">
-        <pre>
-await page.selectOption('#country', 'India');
-                </pre>
-      </div>
-    </div>
-
-    <div class="question">
-      <h3>Q14. How do you handle multiple tabs?</h3>
-
-      <div class="answer">
-        <pre>
-const [newPage] = await Promise.all([
-   context.waitForEvent('page'),
-   page.click('text=Open')
-]);
-                </pre>
-      </div>
-    </div>
-
-    <div class="question">
-      <h3>Q15. Explain Hooks in Playwright.</h3>
-
-      <div class="answer">
-        <ul>
-          <li>beforeEach()</li>
-          <li>afterEach()</li>
-          <li>beforeAll()</li>
-          <li>afterAll()</li>
-        </ul>
-      </div>
-    </div>
-
   </div>
 
-  <!-- Real Time -->
   <div class="section">
     <h2>Real-Time Scenario Questions</h2>
 
     <div class="question">
       <h3>Q16. Your test is flaky. What will you do?</h3>
-
       <div class="answer">
         <ul>
           <li>Check synchronization issues</li>
           <li>Avoid hard waits</li>
           <li>Improve locators</li>
-          <li>Add retries carefully</li>
+          <li>Use retries carefully</li>
           <li>Use tracing/screenshots</li>
         </ul>
       </div>
@@ -548,7 +305,6 @@ const [newPage] = await Promise.all([
 
     <div class="question">
       <h3>Q17. Explain your framework structure.</h3>
-
       <div class="answer">
         <pre>
 tests/
@@ -558,10 +314,9 @@ fixtures/
 test-data/
 config/
 reports/
-                </pre>
+        </pre>
       </div>
     </div>
-
   </div>
 
 </body>

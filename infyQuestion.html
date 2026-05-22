@@ -1,4 +1,3 @@
-
 ## Must Prepare Well:
 
 * Playwright architecture
@@ -29,18 +28,18 @@
 * Your role (manual + automation)
 * Tools used:
 
-  * Playwright
-  * TypeScript
-  * Git / CI tools
+* Playwright
+* TypeScript
+* Git / CI tools
 * What you automated:
 
-  * Smoke suite
-  * Regression suite
-  * Critical flows (login, checkout, etc.)
+* Smoke suite
+* Regression suite
+* Critical flows (login, checkout, etc.)
 * Framework type:
 
-  * POM + utilities
-  * reporting (HTML/Allure)
+* POM + utilities
+* reporting (HTML/Allure)
 
 ---
 
@@ -108,9 +107,9 @@ Infosys often asks this.
 
 ## Q7. Difference between page and context?
 
-| Context               | Page        |
+| Context | Page |
 | --------------------- | ----------- |
-| Browser session       | Tab         |
+| Browser session | Tab |
 | Multiple pages inside | Single page |
 
 ---
@@ -209,9 +208,9 @@ States:
 
 ## Q16. Difference between map and forEach
 
-| map            | forEach   |
+| map | forEach |
 | -------------- | --------- |
-| returns array  | no return |
+| returns array | no return |
 | transformation | iteration |
 
 ---
@@ -247,273 +246,270 @@ Infosys expects:
 ```ts
 function identity<T>(arg: T): T {
   return arg;
-}
-```
+  }
+  ```
 
----
+  ---
 
-## Q20. What is union type?
+  ## Q20. What is union type?
 
-```ts
-let id: string | number;
-```
+  ```ts
+  let id: string | number;
+  ```
 
----
+  ---
 
-## Q21. What is enum?
+  ## Q21. What is enum?
 
-```ts
-enum Status {
+  ```ts
+  enum Status {
   Active,
   Inactive
-}
-```
+  }
+  ```
 
----
+  ---
 
-# 5. Playwright Framework Questions (VERY IMPORTANT for Infosys)
+  # 5. Playwright Framework Questions (VERY IMPORTANT for Infosys)
 
-## Q22. Explain your framework structure
+  ## Q22. Explain your framework structure
 
-Infosys expects this:
+  Infosys expects this:
 
-```
-tests/
-pages/
-utils/
-fixtures/
-config/
-test-data/
-reports/
-```
+  ```
+  tests/
+  pages/
+  utils/
+  fixtures/
+  config/
+  test-data/
+  reports/
+  ```
 
----
+  ---
 
-## Q23. What is Page Object Model?
+  ## Q23. What is Page Object Model?
 
-👉 MUST KNOW QUESTION
+  👉 MUST KNOW QUESTION
 
-### Answer:
+  ### Answer:
 
-* Each page = separate class
-* locators + actions together
+  * Each page = separate class
+  * locators + actions together
 
----
+  ---
 
-## Q24. Why POM?
+  ## Q24. Why POM?
 
-* Reusability
-* Maintainability
-* Readability
-* Reduces duplication
+  * Reusability
+  * Maintainability
+  * Readability
+  * Reduces duplication
 
----
+  ---
 
-## Q25. What are fixtures in Playwright?
+  ## Q25. What are fixtures in Playwright?
 
-Used for:
+  Used for:
 
-* setup
-* teardown
-* login state
+  * setup
+  * teardown
+  * login state
 
-```ts
-test.use({ storageState: 'auth.json' });
-```
+  ```ts
+  test.use({ storageState: 'auth.json' });
+  ```
 
----
+  ---
 
-## Q26. How do you handle login efficiently?
+  ## Q26. How do you handle login efficiently?
 
-Infosys expects:
+  Infosys expects:
 
-* storageState usage
-* API login
+  * storageState usage
+  * API login
 
----
+  ---
 
-## Q27. How do you handle test data?
+  ## Q27. How do you handle test data?
 
-* JSON files
-* env variables
-* faker data generation
+  * JSON files
+  * env variables
+  * faker data generation
 
----
+  ---
 
-## Q28. How do you run tests in CI/CD?
+  ## Q28. How do you run tests in CI/CD?
 
-Expected:
+  Expected:
 
-* Jenkins / Azure DevOps / GitHub Actions
-* CLI command:
+  * Jenkins / Azure DevOps / GitHub Actions
+  * CLI command:
 
-```bash
-npx playwright test
-```
+  ```bash
+  npx playwright test
+  ```
 
----
+  ---
 
-# 6. API Testing Questions (Infosys loves this)
+  # 6. API Testing Questions (Infosys loves this)
 
-## Q29. How do you do API testing in Playwright?
+  ## Q29. How do you do API testing in Playwright?
 
-```ts
-const response = await request.get('/users');
-expect(response.status()).toBe(200);
-```
+  ```ts
+  const response = await request.get('/users');
+  expect(response.status()).toBe(200);
+  ```
 
----
+  ---
 
-## Q30. Difference between UI and API testing
+  ## Q30. Difference between UI and API testing
 
-| UI            | API                |
-| ------------- | ------------------ |
-| Slow          | Fast               |
-| UI validation | backend validation |
-| flaky         | stable             |
+  | UI | API |
+  | ------------- | ------------------ |
+  | Slow | Fast |
+  | UI validation | backend validation |
+  | flaky | stable |
 
----
+  ---
 
-## Q31. What is mocking?
+  ## Q31. What is mocking?
 
-Simulating API responses:
+  Simulating API responses:
 
-```ts
-page.route('**/api', route => {
+  ```ts
+  page.route('**/api', route => {
   route.fulfill({ body: '{}' });
-});
-```
+  });
+  ```
 
----
+  ---
 
-# 7. Scenario-Based Questions (VERY IMPORTANT for Infosys)
+  # 7. Scenario-Based Questions (VERY IMPORTANT for Infosys)
 
-## Q32. Your test is flaky. What will you do?
+  ## Q32. Your test is flaky. What will you do?
 
-Expected answer:
+  Expected answer:
 
-* Replace hard waits
-* Use auto-wait locators
-* Improve selectors
-* Add retries
-* Use trace viewer
+  * Replace hard waits
+  * Use auto-wait locators
+  * Improve selectors
+  * Add retries
+  * Use trace viewer
 
----
+  ---
 
-## Q33. How do you handle dynamic elements?
+  ## Q33. How do you handle dynamic elements?
 
-```ts
-page.locator(`text=${dynamicValue}`);
-```
+  ```ts
+  page.locator(`text=${dynamicValue}`);
+  ```
 
----
+  ---
 
-## Q34. How do you handle multiple tabs?
+  ## Q34. How do you handle multiple tabs?
 
-```ts
-const [newPage] = await Promise.all([
+  ```ts
+  const [newPage] = await Promise.all([
   context.waitForEvent('page'),
   page.click('link')
-]);
-```
+  ]);
+  ```
 
----
+  ---
 
-## Q35. How do you debug failed test?
+  ## Q35. How do you debug failed test?
 
-* trace viewer
-* screenshots
-* video recording
+  * trace viewer
+  * screenshots
+  * video recording
 
-```bash
-npx playwright show-trace
-```
+  ```bash
+  npx playwright show-trace
+  ```
 
----
+  ---
 
-# 8. Coding Questions (Infosys Level)
+  # 8. Coding Questions (Infosys Level)
 
-## Q36. Reverse string
+  ## Q36. Reverse string
 
-```ts
-str.split('').reverse().join('');
-```
+  ```ts
+  str.split('').reverse().join('');
+  ```
 
----
+  ---
 
-## Q37. Remove duplicates
+  ## Q37. Remove duplicates
 
-```ts
-[...new Set(arr)]
-```
+  ```ts
+  [...new Set(arr)]
+  ```
 
----
+  ---
 
-## Q38. Count occurrences
+  ## Q38. Count occurrences
 
-```ts
-const count = {};
-arr.forEach(x => count[x] = (count[x] || 0) + 1);
-```
+  ```ts
+  const count = {};
+  arr.forEach(x => count[x] = (count[x] || 0) + 1);
+  ```
 
----
+  ---
 
-## Q39. Palindrome
+  ## Q39. Palindrome
 
-```ts
-str === str.split('').reverse().join('');
-```
+  ```ts
+  str === str.split('').reverse().join('');
+  ```
 
----
+  ---
 
-# 9. Rapid Fire Infosys Questions
+  # 9. Rapid Fire Infosys Questions
 
-* What is Playwright?
-* What is POM?
-* What is fixture?
-* What is async/await?
-* Difference between locator and elementHandle?
-* What is auto-wait?
-* What is storageState?
-* How do you handle dropdown?
-* How do you handle alerts?
-* What is CI/CD?
+  * What is Playwright?
+  * What is POM?
+  * What is fixture?
+  * What is async/await?
+  * Difference between locator and elementHandle?
+  * What is auto-wait?
+  * What is storageState?
+  * How do you handle dropdown?
+  * How do you handle alerts?
+  * What is CI/CD?
 
----
+  ---
 
-# 10. Infosys Trick Questions (Very Common)
+  # 10. Infosys Trick Questions (Very Common)
 
-## Q40. Why not Selenium?
+  ## Q40. Why not Selenium?
 
-👉 They expect:
+  👉 They expect:
 
-* performance issues
-* flakiness
-* no auto-wait
-* complex setup
+  * performance issues
+  * flakiness
+  * no auto-wait
+  * complex setup
 
----
+  ---
 
-## Q41. What challenges did you face?
+  ## Q41. What challenges did you face?
 
-Good answers:
+  Good answers:
 
-* flaky tests
-* dynamic UI
-* sync issues
-* CI failures
+  * flaky tests
+  * dynamic UI
+  * sync issues
+  * CI failures
 
----
+  ---
 
-## Q42. How do you ensure framework scalability?
+  ## Q42. How do you ensure framework scalability?
 
-Mention:
+  Mention:
 
-* modular structure
-* reusable utilities
-* POM
-* config-driven design
-
-
-
---
+  * modular structure
+  * reusable utilities
+  * POM
+  * config-driven design
+  --
