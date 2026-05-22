@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Common Playwright Errors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Common Errors During Test Execution in Playwright</h2>
+
+  <table>
+    <tr>
+      <th>Error Type</th>
+      <th>Reason</th>
+      <th>Example</th>
+    </tr>
+
+    <tr>
+      <td>Timeout Error</td>
+      <td>Element or page takes too long to load</td>
+      <td>Timeout 30000ms exceeded</td>
+    </tr>
+
+    <tr>
+      <td>Element Not Found</td>
+      <td>Incorrect locator or element not loaded</td>
+      <td>Locator not found</td>
+    </tr>
+
+    <tr>
+      <td>Strict Mode Violation</td>
+      <td>Multiple elements matched the locator</td>
+      <td>Strict mode violation</td>
+    </tr>
+
+    <tr>
+      <td>Element Not Visible</td>
+      <td>Hidden element or popup overlap</td>
+      <td>Element is not visible</td>
+    </tr>
+
+    <tr>
+      <td>Element Detached from DOM</td>
+      <td>DOM refreshed dynamically</td>
+      <td>Element is detached from DOM</td>
+    </tr>
+
+    <tr>
+      <td>Assertion Failure</td>
+      <td>Expected result did not match actual</td>
+      <td>expect().toBe() failed</td>
+    </tr>
+
+    <tr>
+      <td>API Failure</td>
+      <td>Backend service issue</td>
+      <td>500 Internal Server Error</td>
+    </tr>
+
+    <tr>
+      <td>Authentication Issue</td>
+      <td>Session expired or invalid login</td>
+      <td>Auto logout during execution</td>
+    </tr>
+
+    <tr>
+      <td>Iframe Handling Issue</td>
+      <td>Incorrect frame selection</td>
+      <td>Unable to locate iframe element</td>
+    </tr>
+
+    <tr>
+      <td>File Upload Failure</td>
+      <td>Wrong file path</td>
+      <td>ENOENT file not found</td>
+    </tr>
+
+    <tr>
+      <td>Cross Browser Issue</td>
+      <td>Different browser behavior</td>
+      <td>Works in Chrome but fails in Firefox</td>
+    </tr>
+
+    <tr>
+      <td>CI/CD Pipeline Failure</td>
+      <td>Environment or configuration issue</td>
+      <td>Fails in Jenkins pipeline</td>
+    </tr>
+
+  </table>
+
+</body>
+
+</html>

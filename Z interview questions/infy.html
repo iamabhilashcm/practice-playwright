@@ -5,6 +5,11 @@
   <meta charset="UTF-8">
   <title>Playwright + TypeScript Interview Questions</title>
   <style>
+    strong {
+      color: #c40909;
+
+    }
+
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
@@ -35,6 +40,14 @@
     .question {
       font-weight: bold;
       color: #2c3e50;
+      font-size: 20px;
+    }
+
+    .impquestion {
+      font-weight: bold;
+      color: #ad5a1f;
+      font-size: 20px;
+
     }
 
     .answer {
@@ -54,6 +67,27 @@
       padding: 10px;
       border-radius: 5px;
       overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
     }
   </style>
 </head>
@@ -85,7 +119,7 @@
     </div>
 
     <div class="qa">
-      <div class="question">3. What is auto-waiting in Playwright?</div>
+      <div class="impquestion">3. What is auto-waiting in Playwright?</div>
       <div class="answer">
         Playwright automatically waits for elements to be visible, enabled, and stable before performing actions,
         reducing the need for manual waits.
@@ -93,7 +127,7 @@
     </div>
 
     <div class="qa">
-      <div class="question">4. Difference between locator() and page.$()?</div>
+      <div class="impquestion">4. Difference between locator() and page.$()?</div>
       <div class="answer">
         <ul>
           <li><code>locator()</code> supports auto-waiting and is recommended</li>
@@ -103,7 +137,7 @@
     </div>
 
     <div class="qa">
-      <div class="question">5. How do you handle dynamic elements?</div>
+      <div class="impquestion">5. How do you handle dynamic elements?</div>
       <div class="answer">
         Use stable selectors like:
         <ul>
@@ -150,7 +184,7 @@ expect(response.status()).toBe(200);
       </div>
     </div>
 
-    <div class="question">10. How do you handle multiple tabs?</div>
+    <div class="impquestion">10. How do you handle multiple tabs?</div>
     <div class="answer">
       Use context event listener:
       <p> we should use the difined "const name" instead of
@@ -221,7 +255,7 @@ workers: 4
       </div>
 
       <div class="qa">
-        <div class="question">14. How do you handle flaky tests?</div>
+        <div class="impquestion">14. How do you handle flaky tests?</div>
         <div class="answer">
           To handle flaky tests:
           <ul>
@@ -296,7 +330,7 @@ use: {
       </div>
 
       <div class="qa">
-        <div class="question">20. Why is Playwright preferred over other tools?</div>
+        <div class="impquestion">20. Why is Playwright preferred over other tools?</div>
         <div class="answer">
           Playwright is preferred because:
           <ul>
@@ -310,12 +344,108 @@ use: {
       </div>
 
       <div class="qa">
-        <div class="question">21. What is the common ERROR you found while executing thr test case</div>
+        <div class="question">21. What are the common ERROR you found while executing the test case</div>
         <div class="answer">
+          <h2>Common Errors During Test Execution in Playwright</h2>
 
-          Add the answer
+          <table>
+            <tr>
+              <th>Error Type</th>
+              <th>Reason</th>
+              <th>Example</th>
+            </tr>
+
+            <tr>
+              <td><strong>Timeout Error</strong></td>
+              <td>Element or page takes too long to load</td>
+              <td>Timeout 30000ms exceeded</td>
+            </tr>
+
+            <tr>
+              <td>Element Not Found</td>
+              <td>Incorrect locator or element not loaded</td>
+              <td>Locator not found</td>
+            </tr>
+
+            <tr>
+              <td><strong>Strict Mode Violation</strong></td>
+              <td>Multiple elements matched the locator</td>
+              <td>Strict mode violation</td>
+            </tr>
+
+            <tr>
+              <td>Element Not Visible</td>
+              <td>Hidden element or popup overlap</td>
+              <td>Element is not visible</td>
+            </tr>
+
+            <tr>
+              <td>Element Detached from DOM</td>
+              <td>DOM refreshed dynamically</td>
+              <td>Element is detached from DOM</td>
+            </tr>
+
+            <tr>
+              <td><strong>Assertion Failure</strong></td>
+              <td>Expected result did not match actual</td>
+              <td>expect().toBe() failed</td>
+            </tr>
+
+            <tr>
+              <td>API Failure</td>
+              <td>Backend service issue</td>
+              <td>500 Internal Server Error</td>
+            </tr>
+
+            <tr>
+              <td>Authentication Issue</td>
+              <td>Session expired or invalid login</td>
+              <td>Auto logout during execution</td>
+            </tr>
+
+            <tr>
+              <td>Iframe Handling Issue</td>
+              <td>Incorrect frame selection</td>
+              <td>Unable to locate iframe element</td>
+            </tr>
+
+            <tr>
+              <td>File Upload Failure</td>
+              <td>Wrong file path</td>
+              <td>ENOENT file not found</td>
+            </tr>
+
+            <tr>
+              <td>Cross Browser Issue</td>
+              <td>Different browser behavior</td>
+              <td>Works in Chrome but fails in Firefox</td>
+            </tr>
+
+            <tr>
+              <td>CI/CD Pipeline Failure</td>
+              <td>Environment or configuration issue</td>
+              <td>Fails in Jenkins pipeline</td>
+            </tr>
+
+          </table>
         </div>
       </div>
+
+
+      <div class="qa">
+        <div class="impquestion">20. Why is Playwright preferred over other tools?</div>
+        <div class="answer">
+          Playwright is preferred because:
+          <ul>
+            <li>Fast execution</li>
+            <li>Auto-waiting reduces flakiness</li>
+            <li>Cross-browser support</li>
+            <li>Built-in parallel execution</li>
+            <li>Powerful debugging tools</li>
+          </ul>
+        </div>
+      </div>
+
 
     </div>
   </div>
