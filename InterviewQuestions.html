@@ -4,238 +4,373 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playwright Mock Interview</title>
+  <title>Playwright Mock Interview Questions</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    .question {
+      margin-bottom: 25px;
+    }
+
+    .question h3 {
+      color: #0056b3;
+    }
+
+    .answer {
+      background: #f9f9f9;
+      padding: 10px;
+      border-left: 4px solid #007bff;
+      margin-top: 10px;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #ccc;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #007bff;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
 
   <h1>Playwright with TypeScript Mock Interview</h1>
 
-  <hr>
+  <!-- Manual Testing -->
+  <div class="section">
+    <h2>Manual Testing Questions</h2>
 
-  <h2>Manual Testing Questions</h2>
+    <div class="question">
+      <h3>Q1. Difference between Severity and Priority?</h3>
 
-  <h3>Q1. Difference between Severity and Priority?</h3>
+      <div class="answer">
+        <p><b>Severity:</b> Impact of the defect on functionality.</p>
+        <p><b>Priority:</b> Urgency to fix the defect.</p>
 
-  <p><b>Severity:</b> Impact of the defect on functionality.</p>
-  <p><b>Priority:</b> Urgency to fix the defect.</p>
+        <ul>
+          <li>Login button not working → High Severity + High Priority</li>
+          <li>Typo in homepage → Low Severity + High Priority</li>
+        </ul>
+      </div>
+    </div>
 
-  <ul>
-    <li>Login button not working → High Severity + High Priority</li>
-    <li>Typo in homepage → Low Severity + High Priority</li>
-  </ul>
+    <div class="question">
+      <h3>Q2. What is STLC?</h3>
 
-  <h3>Q2. What is STLC?</h3>
+      <div class="answer">
+        <p>Software Testing Life Cycle defines testing activities performed by QA teams.</p>
 
-  <p>Software Testing Life Cycle:</p>
+        <ol>
+          <li>Requirement Analysis</li>
+          <li>Test Planning</li>
+          <li>Test Case Development</li>
+          <li>Environment Setup</li>
+          <li>Test Execution</li>
+          <li>Test Closure</li>
+        </ol>
+      </div>
+    </div>
+  </div>
 
-  <ol>
-    <li>Requirement Analysis</li>
-    <li>Test Planning</li>
-    <li>Test Case Development</li>
-    <li>Environment Setup</li>
-    <li>Test Execution</li>
-    <li>Test Closure</li>
-  </ol>
+  <!-- JavaScript -->
+  <div class="section">
+    <h2>JavaScript Questions</h2>
 
-  <hr>
+    <div class="question">
+      <h3>Q3. Difference between var, let and const?</h3>
 
-  <h2>JavaScript Questions</h2>
+      <table>
+        <tr>
+          <th>Feature</th>
+          <th>var</th>
+          <th>let</th>
+          <th>const</th>
+        </tr>
 
-  <h3>Q3. Difference between var, let and const?</h3>
+        <tr>
+          <td>Scope</td>
+          <td>Function</td>
+          <td>Block</td>
+          <td>Block</td>
+        </tr>
 
-  <table border="1">
-    <tr>
-      <th>Feature</th>
-      <th>var</th>
-      <th>let</th>
-      <th>const</th>
-    </tr>
+        <tr>
+          <td>Reassign</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>No</td>
+        </tr>
 
-    <tr>
-      <td>Scope</td>
-      <td>Function</td>
-      <td>Block</td>
-      <td>Block</td>
-    </tr>
+        <tr>
+          <td>Redeclare</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+      </table>
+    </div>
 
-    <tr>
-      <td>Reassign</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-    </tr>
+    <div class="question">
+      <h3>Q4. Difference between == and === ?</h3>
 
-    <tr>
-      <td>Redeclare</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-    </tr>
-  </table>
+      <div class="answer">
+        <p><code>==</code> compares values only.</p>
+        <p><code>===</code> compares value + datatype.</p>
 
-  <h3>Q4. Difference between == and === ?</h3>
-
-  <p><code>==</code> compares values only.</p>
-  <p><code>===</code> compares value + datatype.</p>
-
-  <pre>
+        <pre>
 5 == "5"   // true
 5 === "5"  // false
-    </pre>
+                </pre>
+      </div>
+    </div>
 
-  <h3>Q5. What are Promises?</h3>
+    <div class="question">
+      <h3>Q5. What are Promises?</h3>
 
-  <p>Promises handle asynchronous operations.</p>
+      <div class="answer">
+        <p>Promises handle asynchronous operations.</p>
 
-  <ul>
-    <li>Pending</li>
-    <li>Resolved</li>
-    <li>Rejected</li>
-  </ul>
+        <ul>
+          <li>Pending</li>
+          <li>Resolved</li>
+          <li>Rejected</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  <hr>
+  <!-- TypeScript -->
+  <div class="section">
+    <h2>TypeScript Questions</h2>
 
-  <h2>TypeScript Questions</h2>
+    <div class="question">
+      <h3>Q6. Why TypeScript over JavaScript?</h3>
 
-  <h3>Q6. Why TypeScript over JavaScript?</h3>
+      <div class="answer">
+        <ul>
+          <li>Static typing</li>
+          <li>Better IDE support</li>
+          <li>Compile-time error detection</li>
+          <li>Better maintainability</li>
+        </ul>
+      </div>
+    </div>
 
-  <ul>
-    <li>Static typing</li>
-    <li>Better IDE support</li>
-    <li>Compile-time error detection</li>
-    <li>Better maintainability</li>
-  </ul>
+    <div class="question">
+      <h3>Q7. What is Union Type?</h3>
 
-  <h3>Q7. What is Union Type?</h3>
-
-  <pre>
+      <div class="answer">
+        <pre>
 let value: string | number;
-    </pre>
+                </pre>
 
-  <p>Variable can store multiple datatypes.</p>
+        <p>Variable can store multiple datatypes.</p>
+      </div>
+    </div>
+  </div>
 
-  <hr>
+  <!-- Playwright -->
+  <div class="section">
+    <h2>Playwright Questions</h2>
 
-  <h2>Playwright Questions</h2>
+    <div class="question">
+      <h3>Q8. What is Playwright?</h3>
 
-  <h3>Q8. What is Playwright?</h3>
+      <div class="answer">
+        <p>
+          Playwright is an open-source end-to-end automation framework
+          developed by Microsoft.
+        </p>
 
-  <p>
-    Playwright is an open-source end-to-end automation framework developed by Microsoft.
-  </p>
+        <p>
+          Supports Chromium, Firefox, WebKit and parallel execution.
+        </p>
+      </div>
+    </div>
 
-  <p>
-    Supports Chromium, Firefox, WebKit and parallel execution.
-  </p>
+    <div class="question">
+      <h3>Q9. Why Playwright over Selenium?</h3>
 
-  <h3>Q9. Why Playwright over Selenium?</h3>
+      <div class="answer">
+        <ul>
+          <li>Faster execution</li>
+          <li>Auto-wait mechanism</li>
+          <li>Built-in API testing</li>
+          <li>Parallel execution</li>
+          <li>Better stability</li>
+        </ul>
+      </div>
+    </div>
 
-  <ul>
-    <li>Faster execution</li>
-    <li>Auto-wait mechanism</li>
-    <li>Built-in API testing</li>
-    <li>Parallel execution</li>
-    <li>Better stability</li>
-  </ul>
+    <div class="question">
+      <h3>Q10. What are Locators?</h3>
 
-  <h3>Q10. What are Locators?</h3>
+      <div class="answer">
+        <p>Locators are used to identify web elements.</p>
 
-  <p>Locators are used to identify web elements.</p>
-
-  <pre>
+        <pre>
 page.locator('#username')
-    </pre>
+                </pre>
+      </div>
+    </div>
 
-  <h3>Q11. Best Locator Strategy?</h3>
+    <div class="question">
+      <h3>Q11. Best Locator Strategy?</h3>
 
-  <ol>
-    <li>getByRole()</li>
-    <li>getByLabel()</li>
-    <li>getByText()</li>
-    <li>data-testid</li>
-    <li>CSS/XPath</li>
-  </ol>
+      <div class="answer">
+        <ol>
+          <li>getByRole()</li>
+          <li>getByLabel()</li>
+          <li>getByText()</li>
+          <li>data-testid</li>
+          <li>CSS/XPath</li>
+        </ol>
 
-  <pre>
+        <pre>
 page.getByRole('button', { name: 'Login' })
-    </pre>
+                </pre>
+      </div>
+    </div>
 
-  <h3>Q12. Difference between locator() and page.$() ?</h3>
+    <div class="question">
+      <h3>Q12. Difference between locator() and page.$() ?</h3>
 
-  <table border="1">
+      <table>
+        <tr>
+          <th>locator()</th>
+          <th>page.$()</th>
+        </tr>
 
-    <tr>
-      <th>locator()</th>
-      <th>page.$()</th>
-    </tr>
+        <tr>
+          <td>Auto waits</td>
+          <td>No auto wait</td>
+        </tr>
 
-    <tr>
-      <td>Auto waits</td>
-      <td>No auto wait</td>
-    </tr>
+        <tr>
+          <td>Recommended</td>
+          <td>Older API</td>
+        </tr>
 
-    <tr>
-      <td>Recommended</td>
-      <td>Older API</td>
-    </tr>
+        <tr>
+          <td>Reliable</td>
+          <td>Can become stale</td>
+        </tr>
+      </table>
+    </div>
 
-    <tr>
-      <td>Reliable</td>
-      <td>Can become stale</td>
-    </tr>
+    <div class="question">
+      <h3>Q13. How do you handle dropdowns?</h3>
 
-  </table>
-
-  <h3>Q13. How do you handle dropdowns?</h3>
-
-  <pre>
+      <div class="answer">
+        <pre>
 await page.selectOption('#country', 'India');
-    </pre>
+                </pre>
+      </div>
+    </div>
 
-  <h3>Q14. How do you handle multiple tabs?</h3>
+    <div class="question">
+      <h3>Q14. How do you handle multiple tabs?</h3>
 
-  <pre>
+      <div class="answer">
+        <pre>
 const [newPage] = await Promise.all([
    context.waitForEvent('page'),
    page.click('text=Open')
 ]);
-    </pre>
+                </pre>
+      </div>
+    </div>
 
-  <h3>Q15. Explain Hooks in Playwright.</h3>
+    <div class="question">
+      <h3>Q15. Explain Hooks in Playwright.</h3>
 
-  <ul>
-    <li>beforeEach()</li>
-    <li>afterEach()</li>
-    <li>beforeAll()</li>
-    <li>afterAll()</li>
-  </ul>
+      <div class="answer">
+        <ul>
+          <li>beforeEach()</li>
+          <li>afterEach()</li>
+          <li>beforeAll()</li>
+          <li>afterAll()</li>
+        </ul>
+      </div>
+    </div>
 
-  <hr>
+  </div>
 
-  <h2>Real-Time Scenario Questions</h2>
+  <!-- Real Time -->
+  <div class="section">
+    <h2>Real-Time Scenario Questions</h2>
 
-  <h3>Q16. Your test is flaky. What will you do?</h3>
+    <div class="question">
+      <h3>Q16. Your test is flaky. What will you do?</h3>
 
-  <ul>
-    <li>Check synchronization issues</li>
-    <li>Avoid hard waits</li>
-    <li>Improve locators</li>
-    <li>Add retries carefully</li>
-    <li>Use tracing/screenshots</li>
-  </ul>
+      <div class="answer">
+        <ul>
+          <li>Check synchronization issues</li>
+          <li>Avoid hard waits</li>
+          <li>Improve locators</li>
+          <li>Add retries carefully</li>
+          <li>Use tracing/screenshots</li>
+        </ul>
+      </div>
+    </div>
 
-  <h3>Q17. Explain your framework structure.</h3>
+    <div class="question">
+      <h3>Q17. Explain your framework structure.</h3>
 
-  <ul>
-    <li> tests/ </li>
-    <li> pages/ </li>
-    <li> utils/ </li>
-    <li> fixtures/ </li>
-    <li> test-data/ </li>
-    <li> config/ </li>
-    <li> reports/ </li>
-  </ul>
+      <div class="answer">
+        <pre>
+tests/
+pages/
+utils/
+fixtures/
+test-data/
+config/
+reports/
+                </pre>
+      </div>
+    </div>
+
+  </div>
 
 </body>
 
