@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Playwright + TypeScript Interview Questions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background: #f7f7f7;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .qa {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-left: 5px solid #4CAF50;
+      background: #f9f9f9;
+    }
+
+    .question {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .answer {
+      margin-top: 8px;
+      color: #444;
+    }
+
+    code {
+      background: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Playwright + TypeScript Interview Questions & Answers</h1>
+
+    <div class="qa">
+      <div class="question">1. What is Playwright and how is it different from Selenium?</div>
+      <div class="answer">
+        Playwright is an end-to-end testing framework developed by Microsoft.
+        It supports Chromium, Firefox, and WebKit browsers with auto-waiting and faster execution.
+        Unlike Selenium, it does not require external drivers and provides built-in tracing, video, and parallel
+        execution support.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">2. What are Browser, Context, and Page in Playwright?</div>
+      <div class="answer">
+        <ul>
+          <li><b>Browser:</b> Actual browser instance (Chrome/Firefox/WebKit)</li>
+          <li><b>Context:</b> Isolated session like incognito window</li>
+          <li><b>Page:</b> A single tab inside a context</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">3. What is auto-waiting in Playwright?</div>
+      <div class="answer">
+        Playwright automatically waits for elements to be visible, enabled, and stable before performing actions,
+        reducing the need for manual waits.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">4. Difference between locator() and page.$()?</div>
+      <div class="answer">
+        <ul>
+          <li><code>locator()</code> supports auto-waiting and is recommended</li>
+          <li><code>page.$()</code> returns element handle without auto-waiting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">5. How do you handle dynamic elements?</div>
+      <div class="answer">
+        Use stable selectors like:
+        <ul>
+          <li>getByRole()</li>
+          <li>getByText()</li>
+          <li>data-testid attributes</li>
+        </ul>
+        Avoid fragile XPath selectors.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">6. Why use TypeScript with Playwright?</div>
+      <div class="answer">
+        TypeScript provides static typing, better IDE support, fewer runtime errors, and improved maintainability
+        for large automation frameworks.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">7. What is Page Object Model (POM)?</div>
+      <div class="answer">
+        POM is a design pattern where each page is represented as a class.
+        It improves reusability, maintainability, and readability of test scripts.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">8. Can Playwright be used for API testing?</div>
+      <div class="answer">
+        Yes, Playwright supports API testing using request context:
+        <pre>
+const response = await request.get('/api/users');
+expect(response.status()).toBe(200);
+            </pre>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">9. What is Playwright Trace Viewer?</div>
+      <div class="answer">
+        It is a debugging tool that shows actions, DOM snapshots, network calls, and screenshots to analyze test
+        failures.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">10. How do you handle multiple tabs?</div>
+      <div class="answer">
+        Use context event listener:
+        <pre>
+const [newPage] = await Promise.all([
+  context.waitForEvent('page'),
+  page.click('a[target="_blank"]')
+]);
+            </pre>
+
+        <div class="qa">
+          <div class="question">11. Can Playwright be used for API testing?</div>
+          <div class="answer">
+            Yes, Playwright supports API testing using its request context.
+            You can send GET, POST, PUT, DELETE requests and validate responses.
+
+            <pre>
+const response = await request.get('/api/users');
+expect(response.status()).toBe(200);
+        </pre>
+          </div>
+        </div>
+
+        <div class="qa">
+          <div class="question">12. What is Playwright Trace Viewer?</div>
+          <div class="answer">
+            Trace Viewer is a debugging tool that helps analyze test failures.
+            It shows screenshots, DOM snapshots, network requests, and actions step-by-step.
+            It is very useful for identifying flaky tests and root causes of failures.
+          </div>
+        </div>
+
+        <div class="qa">
+          <div class="question">13. How do you run tests in parallel in Playwright?</div>
+          <div class="answer">
+            Playwright runs tests in parallel by default using workers.
+            You can also configure it in the config file.
+
+            <pre>
+workers: 4
+        </pre>
+
+            This improves execution speed significantly.
+          </div>
+        </div>
+
+        <div class="qa">
+          <div class="question">14. How do you handle flaky tests?</div>
+          <div class="answer">
+            To handle flaky tests:
+            <ul>
+              <li>Use stable locators like data-testid</li>
+              <li>Avoid hard waits (setTimeout)</li>
+              <li>Use Playwright auto-waiting features</li>
+              <li>Use trace viewer for debugging</li>
+              <li>Avoid dependency between tests</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="qa">
+          <div class="question">15. How do you mock API responses in Playwright?</div>
+          <div class="answer">
+            You can intercept network requests using page.route().
+
+            <pre>
+await page.route('**/api/users', route =>
+  route.fulfill({
+    status: 200,
+    body: JSON.stringify([{ name: 'John' }])
+  })
+);
+        </pre>
+          </div>
+        </div>
+
+        <div class="qa">
+          <div class="question">16. What are fixtures in Playwright?</div>
+          <div class="answer">
+            Fixtures are used to set up and tear down test environments.
+            They help share common setup logic like browser, page, or login state across tests.
+          </div>
+        </div>
+
+        <div class="qa">
+          <div class="question">17. How do you capture screenshots and videos?</div>
+          <div class="answer">
+            You can configure this in Playwright config file.
+
+            <pre>
+use: {
+  screenshot: 'only-on-failure',
+  video: 'retain-on-failure'
+}
+        </pre>
+
+            This helps in debugging failed tests.
+          </div>
+        </div>
+
+        <div class="qa">
+          <div class="question">18. What is test isolation in Playwright?</div>
+          <div class="answer">
+            Test isolation means each test runs independently in a separate browser context.
+            This prevents shared state like cookies or sessions from affecting other tests.
+          </div>
+        </div>
+
+        <div class="qa">
+          <div class="question">19. How do you debug tests in Playwright?</div>
+          <div class="answer">
+            You can debug using:
+            <ul>
+              <li>Playwright Inspector</li>
+              <li>Trace Viewer</li>
+              <li>Headed mode execution</li>
+              <li>Console logs and screenshots</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="qa">
+          <div class="question">20. Why is Playwright preferred over other tools?</div>
+          <div class="answer">
+            Playwright is preferred because:
+            <ul>
+              <li>Fast execution</li>
+              <li>Auto-waiting reduces flakiness</li>
+              <li>Cross-browser support</li>
+              <li>Built-in parallel execution</li>
+              <li>Powerful debugging tools</li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
