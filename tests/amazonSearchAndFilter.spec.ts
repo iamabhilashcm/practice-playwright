@@ -1,11 +1,10 @@
-import {expect, test} from '@playwright/test'
+import { expect, test } from '@playwright/test';
 
-test('validate amazon search laptop and select the lenovo method1', async({page})=>{
+test('validate amazon search laptop and select the lenovo method1', async ({ page }) => {
 
     await page.goto('https://www.amazon.in')
 
     await page.locator('#twotabsearchtextbox').fill('laptop')
-
     await page.keyboard.press('Enter')
 
     await expect (page.getByText('Deals & Discounts')).toBeVisible()
@@ -17,7 +16,7 @@ test('validate amazon search laptop and select the lenovo method1', async({page}
 
 });
 
-test('medthod 2 search by placeholder and search and filter', async({page})=>{
+test('method 2 search by placeholder and search and filter', async ({ page }) => {
 
     await page.goto('https://www.amazon.in')
 

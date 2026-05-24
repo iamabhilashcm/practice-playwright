@@ -442,173 +442,301 @@ use: {
       <div class="qa">
         <div class="impquestion">22.What are the DATA types in Typescript </div>
         <div class="answer">
-          <h3>TypeScript Data Types</h3>
+          <h2>Data Types in TypeScript</h2>
+          <p>TypeScript has several built-in data types that can be used to define the type of a variable. Some of the
+            commonly used data types in TypeScript include:</p>
 
-          <div class="section">
-            <p>
-              In TypeScript, data types define what kind of value a variable can hold.
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              margin: 40px;
+              line-height: 1.6;
+            }
+
+            h1 {
+              color: #2c3e50;
+            }
+
+            h2 {
+              color: #34495e;
+            }
+
+            table {
+              border-collapse: collapse;
+              width: 100%;
+              margin-bottom: 20px;
+            }
+
+            table,
+            th,
+            td {
+              border: 1px solid #ccc;
+            }
+
+            th,
+            td {
+              padding: 10px;
+              text-align: left;
+            }
+
+            pre {
+              background: #f4f4f4;
+              padding: 10px;
+              border-radius: 5px;
+            }
+          </style>
+
+
+          <body>
+
+            <h1>Types in TypeScript</h1>
+            <p>TypeScript types define what kind of data a variable can store. They help detect errors during
+              development.
             </p>
-          </div>
 
-          <div class="section">
             <h2>1. Primitive Types</h2>
 
-            <p>
-              Primitive types include: string, number, boolean, bigint,
-              symbol, null, and undefined.
-            </p>
+            <table>
+              <tr>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Example</th>
+              </tr>
 
-            <pre><code>
-        let name: string = "Alice";
-        let age: number = 25;
-        let isActive: boolean = true;
-                </code></pre>
-          </div>
+              <tr>
+                <td>string</td>
+                <td>Text values</td>
+                <td>"Hello"</td>
+              </tr>
 
-          <div class="section">
-            <h2>2. Object Types</h2>
+              <tr>
+                <td>number</td>
+                <td>Numbers (integer or decimal)</td>
+                <td>10, 5.5</td>
+              </tr>
 
-            <p>
-              Object types are used for structured data with properties.
-            </p>
+              <tr>
+                <td>boolean</td>
+                <td>True or false</td>
+                <td>true, false</td>
+              </tr>
 
-            <pre><code>
-        let user: { name: string; age: number } = {
-            name: "John",
-            age: 30
-        };
-                </code></pre>
-          </div>
+              <tr>
+                <td>null</td>
+                <td>Empty value</td>
+                <td>null</td>
+              </tr>
 
-          <div class="section">
-            <h2>3. Array Types</h2>
+              <tr>
+                <td>undefined</td>
+                <td>Variable declared but not assigned</td>
+                <td>undefined</td>
+              </tr>
 
-            <p>
-              Array types store multiple values of the same type.
-            </p>
+              <tr>
+                <td>bigint</td>
+                <td>Very large numbers</td>
+                <td>123n</td>
+              </tr>
 
-            <pre><code>
-        let nums: number[] = [1, 2, 3];
-                </code></pre>
-          </div>
+              <tr>
+                <td>symbol</td>
+                <td>Unique identifier</td>
+                <td>Symbol()</td>
+              </tr>
 
-          <div class="section">
-            <h2>4. Tuple Types</h2>
+            </table>
 
-            <p>
-              Tuple types store fixed-length arrays with specific types.
-            </p>
+            <h3>Example</h3>
+            <pre>
+                  let name: string = "Rahul";
+                  let age: number = 25;
+                  let isActive: boolean = true;
+                  </pre>
 
-            <pre><code>
-        let person: [string, number] = ["Alice", 25];
-                </code></pre>
-          </div>
+            <h2>2. Array Type</h2>
 
-          <div class="section">
-            <h2>5. Union Types</h2>
+            <p>Used to store multiple values of the same type.</p>
 
-            <p>
-              Union types allow a variable to hold more than one type.
-            </p>
+            <pre>
+                  let numbers: number[] = [1,2,3,4];
+                  
+                  let names: string[] = ["Ram","Shyam","Sita"];
+                  </pre>
 
-            <pre><code>
-        let id: string | number = 101;
-                </code></pre>
-          </div>
+            <p>Alternative syntax:</p>
 
-          <div class="section">
-            <h2>6. Literal Types</h2>
+            <pre>
+                  let numbers: Array<number> = [1,2,3];
+              
+                  </pre>
+            <p> Advanced array </p>
+            <p> Array can also hold multiple types using union types.</p>
+            <pre>
+                  let user: (string | number)[] = ["Hello", 10, "World", 20];
+                  user = ["John", 25, "Doe", 30];
+                  user =[10, 20, 30, 40];
+                  user = ["Alice", "Bob", "Charlie"];
+                  </pre>
+            <h2>3. Tuple</h2>
 
-            <p>
-              Literal types allow only specific exact values.
-            </p>
+            <p>Tuple allows fixed number of elements with specific types.</p>
 
-            <pre><code>
-        let direction: "left" | "right" = "left";
-                </code></pre>
-          </div>
+            <pre>
+                  let user: [string, number];
+                  
+                  user = ["John", 25];
+                  </pre>
 
-          <div class="section">
-            <h2>7. Any Type</h2>
+            <h2>4. Enum</h2>
 
-            <p>
-              The <strong>any</strong> type disables type checking and can hold any value.
-            </p>
+            <p>Enum defines a set of named constants.</p>
 
-            <pre><code>
-        let data: any = 5;
-                </code></pre>
-          </div>
+            <pre>
+                  enum Status {
+                    Pending,
+                    Approved,
+                    Rejected
+                  }
+                  
+                  let orderStatus: Status = Status.Approved;
+          
+                  enum Role {
+                    Admin,
+                    Editor,
+                    Viewer,
+                  }
+          
+                  let userRole: Role = Role.Admin;
+                  </pre>
 
-          <div class="section">
-            <h2>8. Unknown Type</h2>
+            <h2>5. Any</h2>
 
-            <p>
-              The <strong>unknown</strong> type is similar to <strong>any</strong> but safer because
-              it requires type checking before use.
-            </p>
+            <p>Allows any type of value.</p>
 
-            <pre><code>
-        let value: unknown = "Hello";
-        
-        if (typeof value === "string") {
-            console.log(value.toUpperCase());
-        }
-                </code></pre>
-          </div>
+            <pre>
+                  let data: any = 10;
+                  
+                  data = "Hello";
+                  data = true;
+                  </pre>
 
-          <div class="section">
-            <h2>9. Never Type</h2>
+            <h2>6. Unknown</h2>
 
-            <p>
-              The <strong>never</strong> type represents values that never occur.
-            </p>
+            <p>Safer alternative to any.</p>
 
-            <pre><code>
-        function throwError(message: string): never {
-            throw new Error(message);
-        }
-                </code></pre>
-          </div>
+            <pre>
+                  let value: unknown = "Hello";
+                  </pre>
 
-          <div class="section">
-            <h2>10. Void Type</h2>
+            <h2>7. Void</h2>
 
-            <p>
-              The <strong>void</strong> type is used for functions that do not return a value.
-            </p>
+            <p>Used when a function does not return anything.</p>
 
-            <pre><code>
-        function greet(): void {
-            console.log("Hello");
-        }
-                </code></pre>
-          </div>
+            <pre>
+                  function logMessage(): void {
+                    console.log("Hello");
+                  }
+                  </pre>
 
-          <div class="section">
-            <h2>Conclusion</h2>
+            <h2>8. Object Type</h2>
 
-            <p>
-              These data types help TypeScript provide strong type safety,
-              better readability, and improved code quality.
-            </p>
-          </div>
+            <pre>
+                  let user: {name: string, age: number} = {
+                    name: "Ravi",
+                    age: 30
+                  };
+                  </pre>
+
+            <h2>9. Union Type</h2>
+
+            <p>Allows multiple possible types.</p>
+            <p>we can add more than 2 types n type can be added</p>
+
+            <pre>
+                  let id: number | string;
+                  
+                  id = 10;
+                  id = "ABC123";
+                  </pre>
+
+            <h2>10. Literal Types</h2>
+
+            <p>Restricts variable to specific values.</p>
+
+            <pre>
+                  let direction: "left" | "right" | "up" | "down";
+                  
+                  direction = "left";
+                  </pre>
+
+            <h2> Type alias </h2>
+            <p>Type aliases allow you to create a new custom type we can call it, if we can use that as custom type</p>
+            <pre>
+                  type userDetail = {
+                    name: string;
+                    age: number;
+                  };
+                  </pre>
 
 
+
+
+            <h2>Most Used Types in Real Projects</h2>
+
+            <ul>
+              <li>string</li>
+              <li>number</li>
+              <li>boolean</li>
+              <li>Array</li>
+              <li>Object</li>
+              <li>Union</li>
+            </ul>
         </div>
-      </div>
 
 
-      <div class="qa">
-        <div class="impquestion">21.What are the DATA types in Typescript </div>
-        <div class="answer">
+        <div class="qa">
+          <div class="impquestion">23.What is the Best Locator Strategy </div>
+          <div class="answer">
+            Best Locator Strategy in Order
 
+            <ol>
+              <li>getByRole()</li>
+              <li>getByLabel()</li>
+              <li>getByText()</li>
+              <li>data-testid</li>
+              <li>CSS/XPath</li>
+            </ol>
 
+          </div>
         </div>
-      </div>
 
+
+        <div class="qa">
+          <div class="impquestion">24.Difference between == and ===? </div>
+          <div class="answer">
+            <p><code>==</code> compares values only.</p>
+            <p><code>===</code> compares value + datatype.</p>
+            <pre>
+          5 == "5"   // true
+          5 === "5"  // false
+            </pre>
+
+          </div>
+        </div>
+
+
+
+        <div class="qa">
+          <div class="impquestion">21.What are the DATA types in Typescript </div>
+          <div class="answer">
+            Add answer
+
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
 
 </body>
 
