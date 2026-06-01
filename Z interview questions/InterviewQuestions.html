@@ -1,171 +1,729 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Playwright Mock Interview Questions</title>
+  <meta charset="UTF-8">
+  <title>Playwright + TypeScript Interview Questions</title>
+  <style>
+    strong {
+      color: #c40909;
+
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background: #f7f7f7;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .qa {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-left: 5px solid #4CAF50;
+      background: #f9f9f9;
+    }
+
+    .question {
+      font-weight: bold;
+      color: #2c3e50;
+      font-size: 20px;
+    }
+
+    .impquestion {
+      font-weight: bold;
+      color: #e5880e;
+      font-size: 20px;
+
+    }
+
+    .answer {
+      margin-top: 8px;
+      color: #444;
+    }
+
+    .section {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    code {
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Playwright with TypeScript Mock Interview</h1>
 
-  <h2>Manual Testing Questions</h2>
+  < class="container">
+    <h1>Playwright + TypeScript Interview Questions & Answers</h1>
 
-  <h3>Q1. Difference between Severity and Priority?</h3>
-  <p><strong>Severity:</strong> Impact of the defect on functionality.</p>
-  <p><strong>Priority:</strong> Urgency to fix the defect.</p>
-  <ul>
-    <li>Login button not working → High Severity + High Priority</li>
-    <li>Typo in homepage → Low Severity + High Priority</li>
-  </ul>
+    <div class="qa">
+      <div class="question">1. What is Playwright and how is it different from Selenium?</div>
+      <div class="answer">
+        Playwright is an end-to-end testing framework developed by Microsoft.
+        It supports Chromium, Firefox, and WebKit browsers with auto-waiting and faster execution.
+        Unlike Selenium, it does not require external drivers and provides built-in tracing, video, and parallel
+        execution support.
+      </div>
+    </div>
 
-  <h3>Q2. What is STLC?</h3>
-  <p>Software Testing Life Cycle defines testing activities performed by QA teams.</p>
-  <ol>
-    <li>Requirement Analysis</li>
-    <li>Test Planning</li>
-    <li>Test Case Development</li>
-    <li>Environment Setup</li>
-    <li>Test Execution</li>
-    <li>Test Closure</li>
-  </ol>
+    <div class="qa">
+      <div class="question">2. What are Browser, Context, and Page in Playwright?</div>
+      <div class="answer">
+        <ul>
+          <li><b>Browser:</b> Actual browser instance (Chrome/Firefox/WebKit)</li>
+          <li><b>Context:</b> Isolated session like incognito window</li>
+          <li><b>Page:</b> A single tab inside a context</li>
+        </ul>
+      </div>
+    </div>
 
-  <h2>JavaScript Questions</h2>
+    <div class="qa">
+      <div class="impquestion">3. What is auto-waiting in Playwright?</div>
+      <div class="answer">
+        Playwright automatically waits for elements to be visible, enabled, and stable before performing actions,
+        reducing the need for manual waits.
+      </div>
+    </div>
 
-  <h3>Q3. Difference between var, let and const?</h3>
-  <table>
-    <tr>
-      <th>Feature</th>
-      <th>var</th>
-      <th>let</th>
-      <th>const</th>
-    </tr>
-    <tr>
-      <td>Scope</td>
-      <td>Function</td>
-      <td>Block</td>
-      <td>Block</td>
-    </tr>
-    <tr>
-      <td>Reassign</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>Redeclare</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-    </tr>
-  </table>
+    <div class="qa">
+      <div class="impquestion">4. Difference between locator() and page.$()?</div>
+      <div class="answer">
+        <ul>
+          <li><code>locator()</code> supports auto-waiting and is recommended</li>
+          <li><code>page.$()</code> returns element handle without auto-waiting</li>
+        </ul>
+      </div>
+    </div>
 
-  <h3>Q4. Difference between == and ===?</h3>
-  <p><code>==</code> compares values only.</p>
-  <p><code>===</code> compares value + datatype.</p>
-  <pre>
-5 == "5"   // true
-5 === "5"  // false
-  </pre>
+    <div class="qa">
+      <div class="impquestion">5. How do you handle dynamic elements?</div>
+      <div class="answer">
+        Use stable selectors like:
+        <ul>
+          <li>getByRole()</li>
+          <li>getByText()</li>
+          <li>data-testid attributes</li>
+        </ul>
+        Avoid fragile XPath selectors.
+      </div>
+    </div>
 
-  <h3>Q5. What are Promises?</h3>
-  <p>Promises handle asynchronous operations.</p>
-  <ul>
-    <li>Pending</li>
-    <li>Resolved</li>
-    <li>Rejected</li>
-  </ul>
+    <div class="qa">
+      <div class="question">6. Why use TypeScript with Playwright?</div>
+      <div class="answer">
+        TypeScript provides static typing, better IDE support, fewer runtime errors, and improved maintainability
+        for large automation frameworks.
+      </div>
+    </div>
 
-  <h2>TypeScript Questions</h2>
+    <div class="qa">
+      <div class="question">7. What is Page Object Model (POM)?</div>
+      <div class="answer">
+        POM is a design pattern where each page is represented as a class.
+        It improves reusability, maintainability, and readability of test scripts.
+      </div>
+    </div>
 
-  <h3>Q6. Why TypeScript over JavaScript?</h3>
-  <ul>
-    <li>Static typing</li>
-    <li>Better IDE support</li>
-    <li>Compile-time error detection</li>
-    <li>Better maintainability</li>
-  </ul>
+    <div class="qa">
+      <div class="question">8. Can Playwright be used for API testing?</div>
+      <div class="answer">
+        Yes, Playwright supports API testing using request context:
+        <pre>
+const response = await request.get('/api/users');
+expect(response.status()).toBe(200);
+            </pre>
+      </div>
+    </div>
 
-  <h3>Q7. What is Union Type?</h3>
-  <pre>
-let value: string | number;
-  </pre>
-  <p>Variable can store multiple datatypes.</p>
+    <div class="qa">
+      <div class="question">9. What is Playwright Trace Viewer?</div>
+      <div class="answer">
+        It is a debugging tool that shows actions, DOM snapshots, network calls, and screenshots to analyze test
+        failures.
+      </div>
+    </div>
+    <div class="qa">
+      <div class="impquestion">10. How do you handle multiple tabs?</div>
+      <div class="answer">
+        Use context event listener:
+        <p> we should use the difined "const name" instead of
+          page. to locate the locators on the new tab</p>
+        <pre>
+const [newPage] = await Promise.all([
+  context.waitForEvent('page'),
+  page.click('a[target="_blank"]')
+]);
+        Example: 1
+        const [newTab] = await Promise.all([
+        page.context().waitForEvent("page"),
+        page.getByLabel("REDMI A7 Pro 5G (Black, 4GB RAM, 64GB Storage").click(),
+        ]);
+  
+         await newTab.waitForLoadState("domcontentloaded");
+        
+        // Validate product page
+        await expect(
+        newTab.getByRole("heading", { name: "REDMI A7 Pro 5G (Black, 4GB" }),
+        ).toBeVisible();
 
-  <h3>Q8. DATA types in Typescript</h3>
-  <p>In TypeScript, data types define what kind of value a variable can hold.</p>
-  <p>1. Primitive types include string, number, boolean, bigint, symbol, null, and undefined.</p>
-  <p>Example: let name: string = "Alice";</p>
-  <p>Example: let age: number = 25;</p>
-  <p>Example: let isActive: boolean = true;</p>
-  <p>2. Object types are used for structured data like objects with properties.</p>
-  <p>Example: let user: { name: string; age: number } = { name: "John", age: 30 };</p>
-  <p>3. Array types store multiple values of the same type.</p>
-  <p>Example: let nums: number[] = [1, 2, 3];</p>
-  <p>4. Tuple types store fixed-length arrays with specific types.</p>
-  <p>Example: let person: [string, number] = ["Alice", 25];</p>
-  <p>5. Union types allow a variable to hold more than one type.</p>
-  <p>Example: let id: string | number = 101;</p>
-  <p>6. Literal types allow only specific exact values.</p>
-  <p>Example: let direction: "left" | "right" = "left";</p>
-  <p>7. Any type disables type checking and can hold any value.</p>
-  <p>Example: let data: any = 5;</p>
-  <p>8. Unknown type is similar to any but safer because it requires type checking before use.</p>
-  <p>9. Never type represents values that never occur, such as functions that always throw errors.</p>
-  <p>10. Void type is used for functions that do not return a value.</p>
-  <p>These types help TypeScript provide strong type safety and better code quality.</p>
+        
+        Example: 2
+            const [abhi] = await Promise.all([
+            page.context().waitForEvent("page"),
+            page.getByLabel("Redmi Note 14 SE 5G, Crimson Art (6GB, 128GB)").click(),
+            ]);
+            
+            await abhi.waitForLoadState("domcontentloaded");
+        
+            </pre>
+      </div>
+    </div>
 
-  <h2>Playwright Questions</h2>
 
-  <h3>Q8. What is Playwright?</h3>
-  <p>Playwright is an open-source end-to-end automation framework developed by Microsoft.</p>
-  <p>Supports Chromium, Firefox, WebKit and parallel execution.</p>
+    <div class="qa">
+      <div class="question">11. Can Playwright be used for API testing?</div>
+      <div class="answer">
+        Yes, Playwright supports API testing using its request context.
+        You can send GET, POST, PUT, DELETE requests and validate responses.
 
-  <h3>Q9. Why Playwright over Selenium?</h3>
-  <ul>
-    <li>Faster execution</li>
-    <li>Auto-wait mechanism</li>
-    <li>Built-in API testing</li>
-    <li>Parallel execution</li>
-    <li>Better stability</li>
-  </ul>
+        <pre>
+const response = await request.get('/api/users');
+expect(response.status()).toBe(200);
+        </pre>
+      </div>
+    </div>
 
-  <h3>Q10. What are Locators?</h3>
-  <p>Locators are used to identify web elements.</p>
-  <pre>page.locator('#username')</pre>
+    <div class="qa">
+      <div class="question">12. What is Playwright Trace Viewer?</div>
+      <div class="answer">
+        Trace Viewer is a debugging tool that helps analyze test failures.
+        It shows screenshots, DOM snapshots, network requests, and actions step-by-step.
+        It is very useful for identifying flaky tests and root causes of failures.
+      </div>
+    </div>
 
-  <h3>Q11. Best Locator Strategy?</h3>
-  <ol>
-    <li>getByRole()</li>
-    <li>getByLabel()</li>
-    <li>getByText()</li>
-    <li>data-testid</li>
-    <li>CSS/XPath</li>
-  </ol>
-  <pre>page.getByRole('button', { name: 'Login' })</pre>
+    <div class="qa">
+      <div class="question">13. How do you run tests in parallel in Playwright?</div>
+      <div class="answer">
+        Playwright runs tests in parallel by default using workers.
+        You can also configure it in the config file.
 
-  <h2>Real-Time Scenario Questions</h2>
+        <pre>
+workers: 4
+        </pre>
 
-  <h3>Q16. Your test is flaky. What will you do?</h3>
-  <ul>
-    <li>Check synchronization issues</li>
-    <li>Avoid hard waits</li>
-    <li>Improve locators</li>
-    <li>Use retries carefully</li>
-    <li>Use tracing/screenshots</li>
-  </ul>
+        This improves execution speed significantly.
+      </div>
+    </div>
 
-  <h3>Q17. Explain your framework structure.</h3>
-  <pre>
-tests/
-pages/
-utils/
-fixtures/
-test-data/
-config/
-reports/
-  </pre>
+    <div class="qa">
+      <div class="impquestion">14. How do you handle flaky tests?</div>
+      <div class="answer">
+        To handle flaky tests:
+        <ul>
+          <li>Use stable locators like data-testid</li>
+          <li>Avoid hard waits (setTimeout)</li>
+          <li>Use Playwright auto-waiting features</li>
+          <li>Use trace viewer for debugging</li>
+          <li>Avoid dependency between tests</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">15. How do you mock API responses in Playwright?</div>
+      <div class="answer">
+        You can intercept network requests using page.route().
+
+        <pre>
+await page.route('**/api/users', route =>
+  route.fulfill({
+    status: 200,
+    body: JSON.stringify([{ name: 'John' }])
+  })
+);
+        </pre>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">16. What are fixtures in Playwright?</div>
+      <div class="answer">
+        Fixtures are used to set up and tear down test environments.
+        They help share common setup logic like browser, page, or login state across tests.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">17. How do you capture screenshots and videos?</div>
+      <div class="answer">
+        You can configure this in Playwright config file.
+
+        <pre>
+use: {
+  screenshot: 'only-on-failure',
+  video: 'retain-on-failure'
+}
+        </pre>
+
+        This helps in debugging failed tests.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">18. What is test isolation in Playwright?</div>
+      <div class="answer">
+        Test isolation means each test runs independently in a separate browser context.
+        This prevents shared state like cookies or sessions from affecting other tests.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">19. How do you debug tests in Playwright?</div>
+      <div class="answer">
+        You can debug using:
+        <ul>
+          <li>Playwright Inspector</li>
+          <li>Trace Viewer</li>
+          <li>Headed mode execution</li>
+          <li>Console logs and screenshots</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="impquestion">20. Why is Playwright preferred over other tools?</div>
+      <div class="answer">
+        Playwright is preferred because:
+        <ul>
+          <li>Fast execution</li>
+          <li>Auto-waiting reduces flakiness</li>
+          <li>Cross-browser support</li>
+          <li>Built-in parallel execution</li>
+          <li>Powerful debugging tools</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="question">21. What are the common ERROR you found while executing the test case</div>
+      <div class="answer">
+        <h3>Common Errors During Test Execution in Playwright</h3>
+
+        <table>
+          <tr>
+            <th>Error Type</th>
+            <th>Reason</th>
+            <th>Example</th>
+          </tr>
+
+          <tr>
+            <td><strong>Timeout Error</strong></td>
+            <td>Element or page takes too long to load</td>
+            <td>Timeout 30000ms exceeded</td>
+          </tr>
+
+          <tr>
+            <td>Element Not Found</td>
+            <td>Incorrect locator or element not loaded</td>
+            <td>Locator not found</td>
+          </tr>
+
+          <tr>
+            <td><strong>Strict Mode Violation</strong></td>
+            <td>Multiple elements matched the locator</td>
+            <td>Strict mode violation</td>
+          </tr>
+
+          <tr>
+            <td>Element Not Visible</td>
+            <td>Hidden element or popup overlap</td>
+            <td>Element is not visible</td>
+          </tr>
+
+          <tr>
+            <td>Element Detached from DOM</td>
+            <td>DOM refreshed dynamically</td>
+            <td>Element is detached from DOM</td>
+          </tr>
+
+          <tr>
+            <td><strong>Assertion Failure</strong></td>
+            <td>Expected result did not match actual</td>
+            <td>expect().toBe() failed</td>
+          </tr>
+
+          <tr>
+            <td>API Failure</td>
+            <td>Backend service issue</td>
+            <td>500 Internal Server Error</td>
+          </tr>
+
+          <tr>
+            <td>Authentication Issue</td>
+            <td>Session expired or invalid login</td>
+            <td>Auto logout during execution</td>
+          </tr>
+
+          <tr>
+            <td>Iframe Handling Issue</td>
+            <td>Incorrect frame selection</td>
+            <td>Unable to locate iframe element</td>
+          </tr>
+
+          <tr>
+            <td>File Upload Failure</td>
+            <td>Wrong file path</td>
+            <td>ENOENT file not found</td>
+          </tr>
+
+          <tr>
+            <td>Cross Browser Issue</td>
+            <td>Different browser behavior</td>
+            <td>Works in Chrome but fails in Firefox</td>
+          </tr>
+
+          <tr>
+            <td>CI/CD Pipeline Failure</td>
+            <td>Environment or configuration issue</td>
+            <td>Fails in Jenkins pipeline</td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+
+
+    <div class="qa">
+      <div class="impquestion">22.What are the DATA types in Typescript </div>
+      <div class="answer">
+        <h3>Data Types in TypeScript</h3>
+        <p>TypeScript has several built-in data types that can be used to define the type of a variable. Some of the
+          commonly used data types in TypeScript include:</p>
+
+        <style>
+          body {
+            margin: 40px;
+            line-height: 1.6;
+          }
+
+          table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+          }
+
+          table,
+          th,
+          td {
+            border: 1px solid #ccc;
+          }
+
+          th,
+          td {
+            padding: 10px;
+            text-align: left;
+          }
+        </style>
+
+
+        <body>
+
+          <h3>Types in TypeScript</h3>
+          <p>TypeScript types define what kind of data a variable can store. They help detect errors during
+            development.
+          </p>
+
+          <h2>1. Primitive Types</h2>
+
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+
+            <tr>
+              <td>string</td>
+              <td>Text values</td>
+              <td>"Hello"</td>
+            </tr>
+
+            <tr>
+              <td>number</td>
+              <td>Numbers (integer or decimal)</td>
+              <td>10, 5.5</td>
+            </tr>
+
+            <tr>
+              <td>boolean</td>
+              <td>True or false</td>
+              <td>true, false</td>
+            </tr>
+
+            <tr>
+              <td>null</td>
+              <td>Empty value</td>
+              <td>null</td>
+            </tr>
+
+            <tr>
+              <td>undefined</td>
+              <td>Variable declared but not assigned</td>
+              <td>undefined</td>
+            </tr>
+
+            <tr>
+              <td>bigint</td>
+              <td>Very large numbers</td>
+              <td>123n</td>
+            </tr>
+
+            <tr>
+              <td>symbol</td>
+              <td>Unique identifier</td>
+              <td>Symbol()</td>
+            </tr>
+
+          </table>
+
+          <h3>Example</h3>
+          <pre>
+                  let name: string = "Rahul";
+                  let age: number = 25;
+                  let isActive: boolean = true;
+                  </pre>
+
+          <h2>2. Array Type</h2>
+
+          <p>Used to store multiple values of the same type.</p>
+
+          <pre>
+                  let numbers: number[] = [1,2,3,4];
+                  
+                  let names: string[] = ["Ram","Shyam","Sita"];
+                  </pre>
+
+          <p>Alternative syntax:</p>
+
+          <pre>
+                  let numbers: Array<number> = [1,2,3];
+              
+                  </pre>
+          <p> Advanced array </p>
+          <p> Array can also hold multiple types using union types.</p>
+          <pre>
+                  let user: (string | number)[] = ["Hello", 10, "World", 20];
+                  user = ["John", 25, "Doe", 30];
+                  user =[10, 20, 30, 40];
+                  user = ["Alice", "Bob", "Charlie"];
+                  </pre>
+          <h2>3. Tuple</h2>
+
+          <p>Tuple allows fixed number of elements with specific types.</p>
+
+          <pre>
+                  let user: [string, number];
+                  
+                  user = ["John", 25];
+                  </pre>
+
+          <h2>4. Enum</h2>
+
+          <p>Enum defines a set of named constants.</p>
+
+          <pre>
+                  enum Status {
+                    Pending,
+                    Approved,
+                    Rejected
+                  }
+                  
+                  let orderStatus: Status = Status.Approved;
+          
+                  enum Role {
+                    Admin,
+                    Editor,
+                    Viewer,
+                  }
+          
+                  let userRole: Role = Role.Admin;
+                  </pre>
+
+          <h2>5. Any</h2>
+
+          <p>Allows any type of value.</p>
+
+          <pre>
+                  let data: any = 10;
+                  
+                  data = "Hello";
+                  data = true;
+                  </pre>
+
+          <h2>6. Unknown</h2>
+
+          <p>Safer alternative to any.</p>
+
+          <pre>
+            let value: unknown = "Hello";
+                  </pre>
+
+          <h2>7. Void</h2>
+
+          <p>Used when a function does not return anything.</p>
+
+          <pre>
+            function logMessage(): void {
+            console.log("Hello");
+           }
+          </pre>
+
+          <h2>8. Object Type</h2>
+
+          <pre>
+            let user: {name: string, age: number} = {
+            name: "Ravi",
+            age: 30
+            };
+          </pre>
+
+          <h2>9. Union Type</h2>
+
+          <p>Allows multiple possible types.</p>
+          <p>we can add more than 2 types n type can be added</p>
+
+          <pre>
+          let id: number | string;
+                  
+          id = 10;
+          id = "ABC123";
+          </pre>
+
+          <h2>10. Literal Types</h2>
+
+          <p>Restricts variable to specific values.</p>
+
+          <pre>
+            let direction: "left" | "right" | "up" | "down";
+                  
+            direction = "left";
+          </pre>
+
+          <h2> Type alias </h2>
+          <p>Type aliases allow you to create a new custom type we can call it, if we can use that as custom type</p>
+          <pre>
+                  type userDetail = {
+                    name: string;
+                    age: number;
+                  };
+                  </pre>
+
+          <h3>Most Used Types in Real Projects</h3>
+
+          <ul>
+            <li>string</li>
+            <li>number</li>
+            <li>boolean</li>
+            <li>Array</li>
+            <li>Object</li>
+            <li>Union</li>
+          </ul>
+      </div>
+    </div>
+
+
+    <div class="qa">
+      <div class="impquestion">23.What is the Best Locator Strategy </div>
+      <div class="answer">
+        Best Locator Strategy in Order
+
+        <ol>
+          <li>getByRole()</li>
+          <li>getByLabel()</li>
+          <li>getByText()</li>
+          <li>data-testid</li>
+          <li>CSS/XPath</li>
+        </ol>
+
+      </div>
+    </div>
+
+
+    <div class="qa">
+      <div class="impquestion">24.Difference between == and ===? </div>
+      <div class="answer">
+        <p><code>==</code> compares values only.</p>
+        <p><code>===</code> compares value + datatype. (More Strict validation)</p>
+        <pre>
+          5 == "5"   // true
+          5 === "5"  // false 
+        </pre>
+
+      </div>
+    </div>
+
+
+
+    <div class="qa">
+      <div class="impquestion">21.What are the DATA types in Typescript </div>
+      <div class="answer">
+        Add answer
+
+      </div>
+    </div>
+
+    </div>
+    </div>
+
 </body>
 
 </html>
