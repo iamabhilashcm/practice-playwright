@@ -1,31 +1,30 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
 
-  timeout: 30 * 1000,
+  timeout: 60 * 1000,
 
   use: {
     headless: false,
 
     // Use installed Google Chrome
-    channel: 'chrome',
-
+    channel: "chrome",
 
     viewport: { width: 1600, height: 700 },
 
     ignoreHTTPSErrors: true,
 
-    video: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    trace: 'on-first-retry',
+    video: "on-first-retry",
+    screenshot: "only-on-failure",
+    trace: "on-first-retry",
   },
 
   projects: [
     {
-      name: 'Desktop Chrome',
+      name: "Desktop Chrome",
       use: {
-        ...devices['Desktop Chrome'],
+        ...devices["Desktop Chrome"],
       },
     },
   ],

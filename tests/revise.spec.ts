@@ -25,7 +25,37 @@ test("By locator search", async ({ page }) => {
   await expect(page.getByText('results for "mobile 5g"')).toBeVisible();
 });
 
-test("fluke site", async ({page}) => {
+test("fluke site", async ({ page }) => {
   await page.goto("https://www.fluke.com/en-us");
   await page.waitForLoadState();
+});
+
+//01 june, revising what i know
+test("HRM demo site", async ({ page }) => {
+  await page.goto(
+    "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+  );
+  await page.getByPlaceholder("Username").fill("Admin");
+  await page.getByPlaceholder("Password").fill("admin123");
+  await page.getByRole("button", { name: "login" }).click();
+  await page.waitForLoadState();
+  await expect(page.getByText("Dashoboard")).toBeVisible();
+});
+
+test("demosite", async ({ page }) => {
+  await page.goto("https://ultimateqa.com/automation?");
+
+  //clickin on Fake Landing Page hyper link or point
+  await page.getByRole("link", { name: "Fake Landing Page" }).click();
+
+  //adding wait here
+  await page.waitForLoadState();
+
+  //validating the URL
+  await expect(page).toHaveURL("https://ultimateqa.com/fake-landing-page");
+
+  //validating by text
+  await expect(
+    page.getByText("Learn to Code Websites, Apps & Games"),
+  ).toBeVisible();
 });
