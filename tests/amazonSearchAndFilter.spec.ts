@@ -1,38 +1,37 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from "@playwright/test";
 
-test('validate amazon search laptop and select the lenovo method1', async ({ page }) => {
+test("validate amazon search laptop and select the lenovo method1", async ({
+  page,
+}) => {
+  await page.goto("https://www.amazon.in");
 
-    await page.goto('https://www.amazon.in')
+  await page.locator("#twotabsearchtextbox").fill("laptop");
+  await page.keyboard.press("Enter");
 
-    await page.locator('#twotabsearchtextbox').fill('laptop')
-    await page.keyboard.press('Enter')
+  await expect(page.getByText("Deals & Discounts")).toBeVisible();
 
-    await expect (page.getByText('Deals & Discounts')).toBeVisible()
-   
-   await page.locator('#brandsRefinements')
-  .getByText('Lenovo', { exact: true })
-  .click();
-
-
+  await page
+    .locator("#brandsRefinements")
+    .getByText("Lenovo", { exact: true })
+    .click();
 });
 
-test('method 2 search by placeholder and search and filter', async ({ page }) => {
+test("method 2 search by placeholder and search and filter", async ({
+  page,
+}) => {
+  await page.goto("https://www.amazon.in");
 
-    await page.goto('https://www.amazon.in')
+  await page.getByPlaceholder("Search Amazon.in").fill("laptop");
 
-    await page.getByPlaceholder('Search Amazon.in').fill('laptop')
+  await page.keyboard.press("Enter");
 
-    await page.keyboard.press('Enter')
+  //or
+  //  await page.locator('#nav-search-submit-button').click()
 
-    //or
-    //  await page.locator('#nav-search-submit-button').click()
+  await expect(page.getByText("Deals & Discounts")).toBeVisible();
 
-    await expect (page.getByText('Deals & Discounts')).toBeVisible()
-   
-   await page.locator('#brandsRefinements')
-  .getByText('Lenovo', { exact: true })
-  .click();
-
-
+  await page
+    .locator("#brandsRefinements")
+    .getByText("Lenovo", { exact: true })
+    .click();
 });
-

@@ -42,7 +42,7 @@ test("HRM demo site", async ({ page }) => {
   await expect(page.getByText("Dashoboard")).toBeVisible();
 });
 
-test("demosite", async ({ page }) => {
+test("demoAutomationsite with chaining locator", async ({ page }) => {
   await page.goto("https://ultimateqa.com/automation?");
 
   //clickin on Fake Landing Page hyper link or point
@@ -58,4 +58,44 @@ test("demosite", async ({ page }) => {
   await expect(
     page.getByText("Learn to Code Websites, Apps & Games"),
   ).toBeVisible();
+
+  await page.waitForLoadState();
+
+  await page
+    .locator(".et_pb_section")
+    .filter({ hasText: "Become an expert" })
+    .getByRole("link", { name: "View All Courses" })
+    .click();
+
+  //   Contact Us button
+});
+
+test("contactus Cta with scroll on ui", async ({ page }) => {
+  await page.goto("https://ultimateqa.com/automation?");
+
+  //clickin on Fake Landing Page hyper link or point
+  await page.getByRole("link", { name: "Fake Landing Page" }).click();
+
+  //adding wait here
+  await page.waitForLoadState();
+
+  //validating the URL
+  await expect(page).toHaveURL("https://ultimateqa.com/fake-landing-page");
+
+  //validating by text
+  await expect(
+    page.getByText("Learn to Code Websites, Apps & Games"),
+  ).toBeVisible();
+
+  await page.waitForLoadState();
+
+  const contactUsCTA = page
+    .locator(".et_pb_row_8")
+    .filter({ hasText: "Ready to get started?" })
+    .getByRole("link", { name: "Contact Us" });
+
+  //added scroll to mimick the user
+  await contactUsCTA.scrollIntoViewIfNeeded();
+  await page.waitForLoadState();
+  await contactUsCTA.click();
 });
