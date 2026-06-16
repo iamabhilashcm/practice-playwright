@@ -17,6 +17,8 @@ test("HRM demo site", async ({ page }) => {
   //click on the login button
   await page.getByRole("button", { name: "login" }).click();
 
+  await page.waitForLoadState();
+
   //validating the partial url
   await expect(page).toHaveURL(/dashboard/);
   await page.waitForLoadState();
@@ -29,7 +31,7 @@ test("HRM demo site", async ({ page }) => {
     page.getByRole("heading", { name: "/ User Management" }),
   ).toBeVisible();
 
-  //validating the redirected URL
+  //validating the redirected full URL
   await expect(page).toHaveURL(
     "https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers",
   );
