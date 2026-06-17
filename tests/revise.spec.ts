@@ -99,3 +99,12 @@ test("contactus Cta with scroll on ui", async ({ page }) => {
   await page.waitForLoadState();
   await contactUsCTA.click();
 });
+
+test("myminiproject", async ({ page }) => {
+  await page.goto("https://myminihtmlproject.netlify.app/");
+
+  //clicking on the header nav about
+  await page.locator("#nav").getByRole("link", { name: "About" }).click();
+  await page.waitForLoadState();
+  await expect(page.getByText("About Us")).toBeVisible();
+});
