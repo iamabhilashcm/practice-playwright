@@ -35,3 +35,12 @@ test("method 2 search by placeholder and search and filter", async ({
     .getByText("Lenovo", { exact: true })
     .click();
 });
+
+test("goto Amazon", async ({ page }) => {
+  await page.goto("https://www.amazon.in/");
+
+  const searchBox = page.getByPlaceholder("Search Amazon.in");
+
+  await searchBox.fill("samsung mobile");
+  await searchBox.press("Enter");
+});

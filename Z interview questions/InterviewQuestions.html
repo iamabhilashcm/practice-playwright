@@ -714,7 +714,50 @@ use: {
 
 
     <div class="qa">
-      <div class="impquestion">21.What are the DATA types in Typescript </div>
+      <div class="impquestion">25.How to take Screenshots </div>
+      <div class="answer">
+
+        <p>wherever you need the screenshot you can add it.</p>
+
+        <p>file name is the xyz.png </p>
+        <p>you can store it in folder too (here screenshot is the folder name)</p>
+
+        <pre>
+                await page.goto("https://www.amazon.in/");
+                
+                await page.waitForTimeout(7000);
+                
+                //Full page screenshot
+                
+                await page.screenshot({
+                path: "screenshots/full-page.png",
+                fullPage: true,
+                });
+                
+                
+                //screenshot with search value, only by viewport size
+                await page.screenshot({
+                path: "screenshots/searchValue.png",
+                fullPage: false,
+                });
+                
+                //with each element we can take screenshot 
+                
+                const searchBox = page.getByPlaceholder("Search Amazon.in");
+                await searchBox.screenshot({ path: "screenshots/search-box.png" });
+                
+      
+                
+                </pre>
+
+
+
+      </div>
+    </div>
+
+
+    <div class="qa">
+      <div class="impquestion">26.What are the DATA types in Typescript </div>
       <div class="answer">
         Add answer
 
