@@ -10,6 +10,11 @@
 
     }
 
+    .underline {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
@@ -101,7 +106,7 @@
 
 <body>
 
-  < class="container">
+  <div class="container">
     <h1>Playwright + TypeScript Interview Questions & Answers</h1>
 
     <div class="qa">
@@ -408,7 +413,7 @@ use: {
           </tr>
 
           <tr>
-            <td>Authentication Issue</td>
+            <td><strong>Authentication Issue</strong></td>
             <td>Session expired or invalid login</td>
             <td>Auto logout during execution</td>
           </tr>
@@ -717,10 +722,26 @@ use: {
       <div class="impquestion">25.How to take Screenshots </div>
       <div class="answer">
 
-        <p>wherever you need the screenshot you can add it.</p>
+        <p>wherever you need the screenshot you can add it.
+          <strong>await page.screenshot</strong>
+        </p>
 
         <p>file name is the xyz.png </p>
         <p>you can store it in folder too (here screenshot is the folder name)</p>
+
+        <p class="underline"> Example</p>
+        <p> await page.screenshot({</p>
+        <p> path: "screenshots/searchValue.png",</p>
+        <p> fullPage: false,</p>
+        <p> });</p>
+
+        here by chaging the true & false we take fullpage and viewport size screenshot
+
+        <p>fullPage: false, --> takes viewport size screenshot</p>
+
+        <p>fullPage: true, --> takes full page size screenshot</p>
+
+
 
         <pre>
                 await page.goto("https://www.amazon.in/");
@@ -730,14 +751,14 @@ use: {
                 //Full page screenshot
                 
                 await page.screenshot({
-                path: "screenshots/full-page.png",
+                path: "foldername/file-name.png",
                 fullPage: true,
                 });
                 
                 
-                //screenshot with search value, only by viewport size
+                //screenshot with only by viewport size
                 await page.screenshot({
-                path: "screenshots/searchValue.png",
+                path: "foldername/file-name.png",
                 fullPage: false,
                 });
                 
@@ -745,10 +766,8 @@ use: {
                 
                 const searchBox = page.getByPlaceholder("Search Amazon.in");
                 await searchBox.screenshot({ path: "screenshots/search-box.png" });
-                
-      
-                
-                </pre>
+              
+        </pre>
 
 
 
@@ -757,15 +776,47 @@ use: {
 
 
     <div class="qa">
-      <div class="impquestion">26.What are the DATA types in Typescript </div>
+      <div class="impquestion">27.Explain your framework structure. </div>
+      <div class="answer">
+        <pre>
+        tests/
+        pages/
+        utils/
+        fixtures/
+        test-data/
+        config/
+        reports/
+          </pre>
+
+      </div>
+    </div>
+
+
+    <div class="qa">
+      <div class="impquestion">28.What are Promises </div>
+      <div class="answer">
+        <p>Promises handle asynchronous operations.</p>
+        <ul>
+          <li>Pending</li>
+          <li>Resolved</li>
+          <li>Rejected</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="impquestion">28.What are the DATA types in Typescript </div>
       <div class="answer">
         Add answer
 
       </div>
     </div>
 
-    </div>
-    </div>
+
+
+
+  </div>
+  </div>
 
 </body>
 
