@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Use TypeScript with Playwright?</title>
+</head>
+
+<body>
+
+  <h2>6. Why use TypeScript with Playwright?</h2>
+
+  <p>
+    <strong>TypeScript</strong> is commonly used with Playwright because it provides
+    type safety, better code quality, and improved developer productivity.
+  </p>
+
+  <h3>Key Benefits of Using TypeScript with Playwright</h3>
+
+  <ol>
+    <li>
+      <strong>Type Safety</strong>
+      <ul>
+        <li>Detects errors during development instead of runtime.</li>
+        <li>Helps prevent common coding mistakes.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>IntelliSense & Auto-Completion</strong>
+      <ul>
+        <li>Provides method suggestions and code completion in IDEs like VS Code.</li>
+        <li>Speeds up development and improves accuracy.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Better Code Maintainability</strong>
+      <ul>
+        <li>Makes large automation projects easier to manage.</li>
+        <li>Improves readability and collaboration among team members.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Early Error Detection</strong>
+      <ul>
+        <li>Catches issues at compile time before test execution.</li>
+        <li>Reduces debugging effort.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Improved Refactoring</strong>
+      <ul>
+        <li>Allows safer renaming and restructuring of code.</li>
+        <li>Helps identify affected files automatically.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Object-Oriented Programming Support</strong>
+      <ul>
+        <li>Supports classes, interfaces, inheritance, and access modifiers.</li>
+        <li>Useful for implementing the Page Object Model (POM).</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>Example</h3>
+
+  <pre>
+<code>
+import { Page } from '@playwright/test';
+
+async function login(page: Page) {
+    await page.fill('#username', 'testuser');
+    await page.fill('#password', 'password');
+    await page.click('#login');
+}
+</code>
+    </pre>
+
+  <h3>Short Interview Answer</h3>
+
+  <p>
+    "I use TypeScript with Playwright because it provides type safety,
+    IntelliSense support, and compile-time error checking. It helps catch
+    issues early, improves code maintainability, and makes automation
+    frameworks more scalable and reliable, especially in large projects."
+  </p>
+
+</body>
+
+</html>
