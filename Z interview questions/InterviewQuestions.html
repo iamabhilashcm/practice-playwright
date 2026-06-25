@@ -115,7 +115,7 @@
       <div class="answer">
         <ol>
           <li>node js -- Install it from website</li>
-          <li>npm -- npm install</li>
+          <li>npm -- npm init -y, then npm install</li>
           <li>Playwright -- <strong>npm init playwright@latest</strong></li>
         </ol>
         <p>npm init playwright@latest install the browser and asks to chose between the typeScript and javaScript, link
@@ -149,9 +149,10 @@
       <div class="impquestion">3. What is auto-waiting in Playwright?</div>
       <div class="answer">
         Playwright automatically waits for elements to be
-        <strong>visible</strong>,
-        <strong>enabled</strong>, and
-        <strong>stable</strong> before performing any actions,
+        <strong>Visible</strong>,
+        <strong>Stable</strong>, and
+        <strong>Enabled</strong>
+        before performing any actions,
         reducing the need for manual waits.
       </div>
     </div>
@@ -160,8 +161,21 @@
       <div class="impquestion">4. Difference between locator() and page.$()?</div>
       <div class="answer">
         <ul>
+          <li>
+            locator() is Playwright's modern and recommended way of finding elements. It supports auto-waiting,
+            retryability, and
+            always interacts with the latest state of the element.
+          </li>
+
+          <li>
+            page.$() returns an ElementHandle immediately and does not provide auto-waiting or retryability. It is
+            generally
+            discouraged in favor of locator().
+          </li>
+
           <li><code>locator()</code> supports auto-waiting and is recommended</li>
           <li><code>page.$()</code> returns element handle without auto-waiting</li>
+
         </ul>
       </div>
     </div>
@@ -245,7 +259,7 @@
 
         <h3>Short Interview Answer</h3>
 
-        < "I use TypeScript with Playwright because it provides type safety,
+        <p> "I use TypeScript with Playwright because it provides type safety,
           IntelliSense support, and compile-time error checking. It helps catch
           issues early, improves code maintainability, and makes automation
           frameworks more scalable and reliable, especially in large projects." </p>
@@ -766,6 +780,22 @@ use: {
             <li>Object</li>
             <li>Union</li>
           </ul>
+
+          <h3>Difference betweent Any and Unknown</h3>
+          <h3>any</h3>
+          <ul>
+            <li>No type checking.</li>
+            <li>You can do anything.</li>
+            <li>Unsafe.</li>
+          </ul>
+
+          <h3>unknown</h3>
+          <ul>
+            <li>Type checking required.</li>
+            <li>Must verify the type before using it.</li>
+            <li>Safer than <strong>any</strong>.</li>
+          </ul>
+
       </div>
     </div>
 
@@ -889,13 +919,43 @@ use: {
     </div>
 
     <div class="qa">
+      <div class="impquestion">29.What are the Common Assertions </div>
+      <div class="answer">
+        <pre>
+          <ul>
+        <li> 
+          await expect(locator).toBeVisible();
+        </li>
+        
+        <li>
+          await expect(locator).toHaveText('Success');
+        </li>
+       
+        <li>
+          await expect(locator).toContainText('Hello');
+        </li>
+        
+        <li>
+          await expect(locator).toBeEnabled();
+        </li>
+        
+        <li>
+          await expect(page).toHaveURL(/dashboard/);
+        </li>
+       
+        </ul>
+        </pre>
+
+      </div>
+    </div>
+
+    <div class="qa">
       <div class="impquestion">28.What are the DATA types in Typescript </div>
       <div class="answer">
         Add answer
 
       </div>
     </div>
-
 
 
 
